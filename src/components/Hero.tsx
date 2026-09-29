@@ -1,62 +1,100 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
+import { NeuralCanvas } from "./NeuralCanvas";
+import { ArchitectureGraph } from "./ArchitectureGraph";
 
 export function Hero() {
   return (
-    <section className="relative pt-20 pb-28 md:pt-28 md:pb-36">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        {/* Academic / Mission Header */}
+    <section className="relative overflow-hidden pt-16 pb-28 md:pt-24 md:pb-36">
+      {/* Ambient Neural Particle Canvas */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <NeuralCanvas />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#090a0c]/40 via-transparent to-[#090a0c]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+        {/* Top Research Badge */}
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-neutral-400"></span>
-            <span className="text-[12px] font-mono uppercase tracking-widest text-neutral-400">
-              Frontier Research Agenda
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.12] bg-white/[0.03] backdrop-blur-md mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-300">
+              Frontier Model Track
+            </span>
+            <span className="text-neutral-600 font-mono">•</span>
+            <span className="text-[11px] font-mono text-neutral-400">
+              Syntheta-1 Cognitive Architecture
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-white leading-[1.12]">
-            Developing verifiable autonomous reasoning and safe foundation intelligence.
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.08]">
+            Verifiable autonomous reasoning beyond next-token prediction.
           </h1>
 
-          <p className="mt-8 text-lg sm:text-xl text-neutral-400 leading-relaxed max-w-3xl font-normal">
-            Syntheta Research is an independent scientific laboratory exploring the fundamental
-            frontiers of artificial intelligence. We investigate neural-symbolic theorem proving,
-            emergent multi-agent consensus, and mechanistic interpretability to build systems that
-            are reliable, mathematically verifiable, and safe.
+          <p className="mt-7 text-lg sm:text-xl text-neutral-400 leading-relaxed max-w-3xl font-normal">
+            Syntheta is an independent scientific laboratory investigating the convergence of 
+            high-dimensional neural representations and formal mathematical logic. We build 
+            autonomous systems that discover hypotheses, verify formal proofs, and safely execute 
+            across complex frontiers.
           </p>
 
           {/* Action Row */}
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div className="mt-9 flex flex-wrap items-center gap-6">
             <Link
               href="#publications"
               className="inline-flex items-center justify-center rounded-sm bg-white px-5 py-3 text-xs font-semibold tracking-wide text-[#090a0c] hover:bg-neutral-200 transition-colors"
             >
-              Explore Publications
+              Explore Research Papers
             </Link>
 
             <Link
-              href="#safety"
+              href="#models"
               className="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-neutral-300 hover:text-white transition-colors"
             >
-              <span>Our Alignment & Safety Protocol</span>
+              <span>Model Architecture & Weights</span>
               <ArrowRight className="h-3.5 w-3.5 text-neutral-400" />
             </Link>
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mt-24 border-t border-white/[0.08]" />
+        {/* Technical Centerpiece: System Architecture Visualizer */}
+        <div className="mt-14">
+          <ArchitectureGraph />
+        </div>
+
+        {/* Verification & Compute Benchmark Band */}
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-white/[0.08] text-xs font-mono">
+          <div>
+            <span className="text-neutral-500 block text-[10px] uppercase">Reasoning Benchmark</span>
+            <span className="text-base text-white font-semibold mt-0.5 block">94.8% IMO-500</span>
+            <span className="text-neutral-500 text-[11px]">Lean 4 kernel certified</span>
+          </div>
+          <div>
+            <span className="text-neutral-500 block text-[10px] uppercase">Sparse Architecture</span>
+            <span className="text-base text-white font-semibold mt-0.5 block">67B MoE (14B Active)</span>
+            <span className="text-neutral-500 text-[11px]">Top-2 routing gating</span>
+          </div>
+          <div>
+            <span className="text-neutral-500 block text-[10px] uppercase">Context Horizon</span>
+            <span className="text-base text-white font-semibold mt-0.5 block">1,000,000 Tokens</span>
+            <span className="text-neutral-500 text-[11px]">Sparse linear attention</span>
+          </div>
+          <div>
+            <span className="text-neutral-500 block text-[10px] uppercase">Epistemic Hallucination</span>
+            <span className="text-base text-emerald-400 font-semibold mt-0.5 block">0.00% in Proofs</span>
+            <span className="text-neutral-500 text-[11px]">Bounded oracle verification</span>
+          </div>
+        </div>
 
         {/* Core Research Disciplines */}
-        <div className="mt-16">
+        <div className="mt-20">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-10">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                Scientific Disciplines
+                Scientific Programs
               </span>
               <h2 className="text-xl font-medium tracking-tight text-white mt-1">
-                Core Research Vectors
+                Active Research Vectors
               </h2>
             </div>
             <Link
@@ -70,33 +108,33 @@ export function Hero() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Vector 1 */}
-            <div className="border border-white/[0.08] bg-white/[0.015] p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.16] transition-colors">
+            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
               <div>
                 <span className="text-xs font-mono text-neutral-500 block mb-4">
-                  01 / THEOREM PROVING
+                  01 / FORMAL VERIFICATION
                 </span>
                 <h3 className="text-base font-semibold text-white tracking-tight mb-2.5">
-                  Formal Reasoning & Verification
+                  Neural-Symbolic Theorem Proving
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  Integrating interactive theorem provers (Lean 4, Isabelle) with generative architectures
-                  to synthesize deterministic proofs and eliminate epistemic hallucinations in mathematical logic.
+                  Integrating interactive theorem provers (Lean 4, Isabelle) with generative foundation models
+                  to synthesize deterministic proofs and eliminate hallucinations in scientific mathematics.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Domain: Symbolic Logic</span>
-                <span>Active Track</span>
+                <span>Discipline: Mathematical Logic</span>
+                <span className="text-emerald-400">Active</span>
               </div>
             </div>
 
             {/* Vector 2 */}
-            <div className="border border-white/[0.08] bg-white/[0.015] p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.16] transition-colors">
+            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
               <div>
                 <span className="text-xs font-mono text-neutral-500 block mb-4">
                   02 / INTERPRETABILITY
                 </span>
                 <h3 className="text-base font-semibold text-white tracking-tight mb-2.5">
-                  Mechanistic Alignment & Steering
+                  Mechanistic Alignment & Circuits
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
                   Deconstructing high-dimensional latent activations into discrete monosemantic features.
@@ -104,13 +142,13 @@ export function Hero() {
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Domain: Safety Science</span>
-                <span>Active Track</span>
+                <span>Discipline: Safety Science</span>
+                <span className="text-emerald-400">Active</span>
               </div>
             </div>
 
             {/* Vector 3 */}
-            <div className="border border-white/[0.08] bg-white/[0.015] p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.16] transition-colors">
+            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
               <div>
                 <span className="text-xs font-mono text-neutral-500 block mb-4">
                   03 / AUTONOMOUS DYNAMICS
@@ -124,14 +162,14 @@ export function Hero() {
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Domain: Agent Systems</span>
-                <span>Active Track</span>
+                <span>Discipline: Distributed Cognition</span>
+                <span className="text-emerald-400">Active</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Selected Recent Papers Preview */}
+        {/* Selected Preprints */}
         <div className="mt-20 pt-16 border-t border-white/[0.08]">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-8">
             <div>
