@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { siteConfig, theme } from "@/lib/design-system";
 
 export function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -67,48 +68,47 @@ export function Hero() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-12 w-full my-auto">
+      <div className={`relative z-10 ${theme.layout.container} my-auto`}>
         <div className="max-w-2xl space-y-9">
           
           {/* Jewel Top Badge */}
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.14] bg-white/[0.04] px-4 py-1.5 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.18)] transition-all hover:border-white/25">
+          <div className={theme.components.badge}>
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-80" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-amber-400 to-orange-500 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
+              <span className={theme.components.badgePulse} />
+              <span className={theme.components.badgeJewel} />
             </span>
-            <span className="text-xs font-medium text-neutral-300 tracking-wide">
-              GrowAgent for Enterprise & Labs
+            <span className="tracking-wide">
+              {siteConfig.brand.badgeText}
             </span>
           </div>
 
           {/* Master Headline (Optical Kerning + Silver Sheen) */}
-          <h1 className="text-5xl sm:text-6xl lg:text-[74px] font-bold tracking-[-0.035em] text-white leading-[1.05]">
+          <h1 className={theme.typography.h1}>
             Turn Intelligence <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-b from-white via-white/95 to-neutral-400 bg-clip-text text-transparent">
+            <span className={theme.typography.gradientText}>
               Into Growth Infrastructure.
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-neutral-400 leading-relaxed font-normal max-w-xl">
-            We help startups and enterprises integrate foundational AI into 
-            marketing, operations, and product, without complexity, without chaos.
+          <p className={`${theme.typography.bodyLarge} max-w-xl`}>
+            {siteConfig.brand.description}
           </p>
 
           {/* Action Buttons */}
           <div className="pt-3 flex flex-wrap items-center gap-6">
             <Link
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-black hover:bg-neutral-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+              href={siteConfig.links.primaryAction.href}
+              className={theme.components.buttonPrimary}
             >
-              <span>Start AI Journey</span>
+              <span>{siteConfig.links.primaryAction.label}</span>
             </Link>
 
             <Link
-              href="#cases"
-              className="group inline-flex items-center text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
+              href={siteConfig.links.secondaryAction.href}
+              className={theme.components.buttonSecondary}
             >
-              <span>View Case Studies</span>
+              <span>{siteConfig.links.secondaryAction.label}</span>
               <ChevronRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
             </Link>
           </div>
@@ -116,34 +116,26 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom Partner / Client Logos Bar (Exact Match to Reference Image) */}
+      {/* Bottom Partner / Client Logos Bar */}
       <div className="relative z-10 w-full border-t border-white/[0.08] pt-9 mt-14 bg-gradient-to-b from-transparent to-black/80">
-        <div className="mx-auto max-w-7xl px-6 sm:px-12">
+        <div className={theme.layout.container}>
           <div className="flex flex-wrap items-center justify-between gap-8 sm:gap-12 opacity-45 grayscale hover:opacity-75 transition-opacity duration-300">
-            <span className="font-sans font-bold text-base sm:text-lg tracking-tight text-white lowercase">
-              attentive<span className="text-[10px] align-top ml-0.5">®</span>
-            </span>
-            <span className="font-sans font-semibold text-base sm:text-lg tracking-wider text-white lowercase">
-              coinbase
-            </span>
-            <span className="font-sans font-medium text-base sm:text-lg tracking-tight text-white lowercase">
-              upwork
-            </span>
-            <span className="font-sans font-bold text-base sm:text-lg tracking-normal text-white">
-              DocuSign
-            </span>
-            <span className="font-sans font-bold text-base sm:text-lg tracking-tight text-white lowercase">
-              drips
-            </span>
-            <span className="font-sans font-extrabold text-base sm:text-lg tracking-widest text-white uppercase">
-              NETFLIX
-            </span>
-            <span className="font-serif italic font-semibold text-base sm:text-lg tracking-normal text-white lowercase">
-              braze
-            </span>
-            <span className="font-sans font-semibold text-base sm:text-lg tracking-tight text-white lowercase">
-              zapier
-            </span>
+            {siteConfig.partners.map((partner) => (
+              <span 
+                key={partner.name}
+                className={`text-base sm:text-lg text-white ${
+                  partner.special 
+                    ? "font-sans font-bold tracking-tight lowercase" 
+                    : partner.uppercase 
+                    ? "font-sans font-extrabold tracking-widest uppercase"
+                    : partner.italic
+                    ? "font-serif italic font-semibold tracking-normal lowercase"
+                    : "font-sans font-semibold tracking-wider lowercase"
+                }`}
+              >
+                {partner.name}
+              </span>
+            ))}
           </div>
         </div>
       </div>
