@@ -1,249 +1,352 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
+import { 
+  ArrowRight, 
+  ArrowUpRight, 
+  Play, 
+  RotateCcw, 
+  Check, 
+  Copy, 
+  ShieldCheck, 
+  Cpu, 
+  GitBranch, 
+  ChevronDown, 
+  ChevronUp,
+  Terminal,
+  Activity
+} from "lucide-react";
 import { NeuralCanvas } from "./NeuralCanvas";
-import { ArchitectureGraph } from "./ArchitectureGraph";
 
 export function Hero() {
+  const [copied, setCopied] = useState(false);
+  const [activeTask, setActiveTask] = useState<"math" | "agent" | "circuit">("math");
+  const [isThinkingOpen, setIsThinkingOpen] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
+  const [runCount, setRunCount] = useState(0);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("pip install syntheta-core && python -m syntheta.reason --verify");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleRunSimulation = () => {
+    setIsRunning(true);
+    setTimeout(() => {
+      setIsRunning(false);
+      setRunCount((prev) => prev + 1);
+    }, 1100);
+  };
+
+  const tasks = {
+    math: {
+      title: "Non-Linear Operator Continuity Proof",
+      prompt: "Prove that the non-linear reaction-diffusion operator T(u) = -Δu + u³ has a unique weak solution in H¹₀(Ω).",
+      thoughts: [
+        "Constructing variational formulation over Sobolev space H¹₀(Ω)...",
+        "Checking coercivity: ⟨T(u), u⟩ ≥ C‖u‖²_H¹ + ‖u‖⁴_L⁴ > 0 via Poincaré inequality.",
+        "Establishing strict monotonicity: ⟨T(u) - T(v), u - v⟩ ≥ ‖∇(u - v)‖²_L² ≥ 0.",
+        "Minty-Browder theorem conditions verified without contradiction.",
+      ],
+      code: `theorem unique_weak_solution (u v : H1_0 Ω) (h : T u = T v) : u = v := by
+  have mono : inner (T u - T v) (u - v) ≥ ‖∇(u - v)‖^2 := by exact strict_monotonicity u v
+  have zero_diff : ‖∇(u - v)‖ = 0 := by linarith [h, mono]
+  exact poincare_injectivity zero_diff`,
+      cert: "LEAN 4 KERNEL: 0 UNPROVEN AXIOMS • SOUNDNESS CERTIFIED",
+    },
+    agent: {
+      title: "Byzantine Fault Tolerant Consensus Protocol",
+      prompt: "Synthesize a crash-fault-tolerant quorum consensus algorithm across 128 distributed nodes under 20% packet drop.",
+      thoughts: [
+        "Initializing Raft-extended state-machine replication topology...",
+        "Formulating safety invariant: No two committed logs differ at index k.",
+        "Executing model-checking trace across 10,000 randomized split-brain partitions.",
+        "TLA+ invariant verification passed: Linearizability confirmed.",
+      ],
+      code: `pub async fn verify_quorum_commit(log_idx: u64, quorum: &[NodeId]) -> Result<Proof, ConsensusError> {
+    assert!(quorum.len() >= 2 * FAULT_TOLERANCE + 1, "Quorum size invariant violated");
+    let state_hash = hash_replicated_states(quorum, log_idx).await?;
+    oracle::verify_linearizable_commit(state_hash, log_idx)
+}`,
+      cert: "TLA+ FORMAL MODEL CHECK: 0 DEADLOCKS • 0 SAFETY VIOLATIONS",
+    },
+    circuit: {
+      title: "Sparse Autoencoder Feature Attribution",
+      prompt: "Deconstruct layer 32 attention head #14 to isolate the monosemantic feature corresponding to inductive logic.",
+      thoughts: [
+        "Applying 16x overcomplete Dictionary Learning to activation residual stream...",
+        "Measuring feature activation sparsity: L0 norm = 14.2 active latents.",
+        "Ablating identified circuit node: Inductive reasoning accuracy drops from 99.4% to 12.1%.",
+        "Mechanistic causal attribution established with 99.8% statistical significance.",
+      ],
+      code: `feature_circuit = SAE.extract_subgraph(layer=32, head=14, target="inductive_logic")
+steering_vector = feature_circuit.compute_intervention_vector(alpha=2.5)
+model.steer_activation_stream(intervention=steering_vector, verify_faithfulness=True)`,
+      cert: "CIRCUIT DISCOVERY: 99.8% CAUSAL INTERVENTION FAITHFULNESS",
+    },
+  };
+
   return (
-    <section className="relative overflow-hidden pt-16 pb-28 md:pt-24 md:pb-36">
-      {/* Ambient Neural Particle Canvas */}
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden py-12 lg:py-20">
+      {/* Background Neural Canvas */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <NeuralCanvas />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#090a0c]/40 via-transparent to-[#090a0c]" />
+        <div className="absolute inset-0 bg-radial-at-c from-transparent via-[#050608]/70 to-[#050608]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        {/* Top Research Badge */}
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.12] bg-white/[0.03] backdrop-blur-md mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-300">
-              Frontier Model Track
-            </span>
-            <span className="text-neutral-600 font-mono">•</span>
-            <span className="text-[11px] font-mono text-neutral-400">
-              Syntheta-1 Cognitive Architecture
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.08]">
-            Verifiable autonomous reasoning beyond next-token prediction.
-          </h1>
-
-          <p className="mt-7 text-lg sm:text-xl text-neutral-400 leading-relaxed max-w-3xl font-normal">
-            Syntheta is an independent scientific laboratory investigating the convergence of 
-            high-dimensional neural representations and formal mathematical logic. We build 
-            autonomous systems that discover hypotheses, verify formal proofs, and safely execute 
-            across complex frontiers.
-          </p>
-
-          {/* Action Row */}
-          <div className="mt-9 flex flex-wrap items-center gap-6">
-            <Link
-              href="#publications"
-              className="inline-flex items-center justify-center rounded-sm bg-white px-5 py-3 text-xs font-semibold tracking-wide text-[#090a0c] hover:bg-neutral-200 transition-colors"
-            >
-              Explore Research Papers
-            </Link>
-
-            <Link
-              href="#models"
-              className="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-neutral-300 hover:text-white transition-colors"
-            >
-              <span>Model Architecture & Weights</span>
-              <ArrowRight className="h-3.5 w-3.5 text-neutral-400" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Technical Centerpiece: System Architecture Visualizer */}
-        <div className="mt-14">
-          <ArchitectureGraph />
-        </div>
-
-        {/* Verification & Compute Benchmark Band */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-white/[0.08] text-xs font-mono">
-          <div>
-            <span className="text-neutral-500 block text-[10px] uppercase">Reasoning Benchmark</span>
-            <span className="text-base text-white font-semibold mt-0.5 block">94.8% IMO-500</span>
-            <span className="text-neutral-500 text-[11px]">Lean 4 kernel certified</span>
-          </div>
-          <div>
-            <span className="text-neutral-500 block text-[10px] uppercase">Sparse Architecture</span>
-            <span className="text-base text-white font-semibold mt-0.5 block">67B MoE (14B Active)</span>
-            <span className="text-neutral-500 text-[11px]">Top-2 routing gating</span>
-          </div>
-          <div>
-            <span className="text-neutral-500 block text-[10px] uppercase">Context Horizon</span>
-            <span className="text-base text-white font-semibold mt-0.5 block">1,000,000 Tokens</span>
-            <span className="text-neutral-500 text-[11px]">Sparse linear attention</span>
-          </div>
-          <div>
-            <span className="text-neutral-500 block text-[10px] uppercase">Epistemic Hallucination</span>
-            <span className="text-base text-emerald-400 font-semibold mt-0.5 block">0.00% in Proofs</span>
-            <span className="text-neutral-500 text-[11px]">Bounded oracle verification</span>
-          </div>
-        </div>
-
-        {/* Core Research Disciplines */}
-        <div className="mt-20">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-10">
-            <div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                Scientific Programs
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          
+          {/* Left Column: Vision, Mission & Scientific Foundation */}
+          <div className="lg:col-span-6 space-y-7">
+            {/* Status Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.12] bg-white/[0.03] backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               </span>
-              <h2 className="text-xl font-medium tracking-tight text-white mt-1">
-                Active Research Vectors
-              </h2>
-            </div>
-            <Link
-              href="#agenda"
-              className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
-            >
-              <span>View Full Research Roadmap</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Vector 1 */}
-            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
-              <div>
-                <span className="text-xs font-mono text-neutral-500 block mb-4">
-                  01 / FORMAL VERIFICATION
-                </span>
-                <h3 className="text-base font-semibold text-white tracking-tight mb-2.5">
-                  Neural-Symbolic Theorem Proving
-                </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  Integrating interactive theorem provers (Lean 4, Isabelle) with generative foundation models
-                  to synthesize deterministic proofs and eliminate hallucinations in scientific mathematics.
-                </p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Discipline: Mathematical Logic</span>
-                <span className="text-emerald-400">Active</span>
-              </div>
-            </div>
-
-            {/* Vector 2 */}
-            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
-              <div>
-                <span className="text-xs font-mono text-neutral-500 block mb-4">
-                  02 / INTERPRETABILITY
-                </span>
-                <h3 className="text-base font-semibold text-white tracking-tight mb-2.5">
-                  Mechanistic Alignment & Circuits
-                </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  Deconstructing high-dimensional latent activations into discrete monosemantic features.
-                  Developing mathematical bounds on model alignment, deception detection, and goal drift.
-                </p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Discipline: Safety Science</span>
-                <span className="text-emerald-400">Active</span>
-              </div>
-            </div>
-
-            {/* Vector 3 */}
-            <div className="border border-white/[0.08] bg-[#0c0d11]/50 backdrop-blur-sm p-7 rounded-sm flex flex-col justify-between hover:border-white/[0.18] transition-colors">
-              <div>
-                <span className="text-xs font-mono text-neutral-500 block mb-4">
-                  03 / AUTONOMOUS DYNAMICS
-                </span>
-                <h3 className="text-base font-semibold text-white tracking-tight mb-2.5">
-                  Multi-Agent Consensus Networks
-                </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  Investigating decentralized agent coordination protocols where heterogeneous model instances
-                  critique, verify, and iteratively converge on rigorous solutions to scientific problems.
-                </p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-500 font-mono">
-                <span>Discipline: Distributed Cognition</span>
-                <span className="text-emerald-400">Active</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Selected Preprints */}
-        <div className="mt-20 pt-16 border-t border-white/[0.08]">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-8">
-            <div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                Selected Preprints
+              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-300">
+                Frontier Release
               </span>
-              <h2 className="text-xl font-medium tracking-tight text-white mt-1">
-                Recent Scientific Papers
-              </h2>
-            </div>
-            <Link
-              href="#publications"
-              className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
-            >
-              <span>View All 24 Publications</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
-            {/* Paper 1 */}
-            <div className="py-6 flex flex-col md:flex-row md:items-start justify-between gap-4 group">
-              <div className="max-w-3xl">
-                <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 mb-2">
-                  <span>arXiv:2609.14820</span>
-                  <span>•</span>
-                  <span>September 2026</span>
-                  <span>•</span>
-                  <span className="text-neutral-400">Formal Verification</span>
-                </div>
-                <h4 className="text-base font-medium text-white group-hover:text-neutral-200 transition-colors">
-                  On the Soundness and Verification Bounds of Neural Autoformalization in Lean 4
-                </h4>
-                <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                  We present a formal framework evaluating inductive soundness guarantees in autoformalized
-                  mathematical corpora, demonstrating a 3.4× reduction in ungrounded premise leaps.
-                </p>
-              </div>
-              <div className="flex items-center gap-4 text-xs font-mono text-neutral-400 shrink-0 self-start md:self-center">
-                <a href="#pdf" className="inline-flex items-center gap-1 hover:text-white underline underline-offset-4">
-                  <FileText className="w-3.5 h-3.5" /> PDF
-                </a>
-                <a href="#bibtex" className="hover:text-white">BibTeX</a>
-              </div>
+              <span className="text-neutral-600 font-mono">•</span>
+              <span className="text-[11px] font-mono text-neutral-400">
+                Syntheta-2.5 Reasoner
+              </span>
             </div>
 
-            {/* Paper 2 */}
-            <div className="py-6 flex flex-col md:flex-row md:items-start justify-between gap-4 group">
-              <div className="max-w-3xl">
-                <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 mb-2">
-                  <span>arXiv:2608.09312</span>
-                  <span>•</span>
-                  <span>August 2026</span>
-                  <span>•</span>
-                  <span className="text-neutral-400">Interpretability</span>
-                </div>
-                <h4 className="text-base font-medium text-white group-hover:text-neutral-200 transition-colors">
-                  Sparse Autoencoder Feature Discovery in Transformer Reasoning Circuits
-                </h4>
-                <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                  Analyzing 16 million cross-entropy latent representations across deep multi-hop inference
-                  layers to isolate invariant sub-circuits responsible for logical deductions.
-                </p>
+            {/* Master Headline */}
+            <h1 className="text-4xl sm:text-6xl font-normal tracking-tight text-white leading-[1.08]">
+              Autonomous intelligence.{" "}
+              <span className="font-serif italic text-neutral-300">
+                Formulated in logic.
+              </span>{" "}
+              Verified by proof.
+            </h1>
+
+            {/* Core Abstract */}
+            <p className="text-base sm:text-lg text-neutral-400 leading-relaxed font-normal">
+              We train foundational cognitive models that reason beyond statistical approximation. 
+              By coupling deep neural representations with interactive theorem provers and 
+              test-time compute search, Syntheta builds systems that independently formulate, 
+              verify, and prove scientific knowledge.
+            </p>
+
+            {/* Quick CLI Copy & Primary Action Buttons */}
+            <div className="space-y-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="#playground"
+                  className="inline-flex items-center justify-center rounded bg-white px-5 py-3 text-xs font-semibold tracking-wide text-black hover:bg-neutral-200 transition-colors shadow-lg"
+                >
+                  <span>Launch Neural Playground</span>
+                  <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                </Link>
+
+                <Link
+                  href="#publications"
+                  className="inline-flex items-center gap-2 rounded border border-white/[0.16] bg-white/[0.02] px-5 py-3 text-xs font-medium tracking-wide text-neutral-300 hover:text-white hover:border-white/[0.3] transition-all"
+                >
+                  <span>Read Technical Whitepaper</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-neutral-500" />
+                </Link>
               </div>
-              <div className="flex items-center gap-4 text-xs font-mono text-neutral-400 shrink-0 self-start md:self-center">
-                <a href="#pdf" className="inline-flex items-center gap-1 hover:text-white underline underline-offset-4">
-                  <FileText className="w-3.5 h-3.5" /> PDF
-                </a>
-                <a href="#bibtex" className="hover:text-white">BibTeX</a>
+
+              {/* Install CLI snippet */}
+              <div className="inline-flex items-center gap-2 bg-[#0c0d11] border border-white/[0.1] px-3.5 py-1.5 rounded text-xs font-mono text-neutral-300">
+                <Terminal className="h-3.5 w-3.5 text-neutral-500" />
+                <span className="text-neutral-500">$</span>
+                <span>pip install syntheta-core</span>
+                <button
+                  onClick={handleCopy}
+                  className="ml-2 text-neutral-400 hover:text-white transition-colors"
+                  title="Copy command"
+                >
+                  {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Scientific Benchmarks Row */}
+            <div className="pt-6 border-t border-white/[0.08] grid grid-cols-3 gap-4 text-xs font-mono">
+              <div>
+                <span className="text-neutral-500 block text-[10px] uppercase">Formal Soundness</span>
+                <span className="text-base text-white font-semibold mt-0.5 block">99.4% Lean 4</span>
+                <span className="text-neutral-500 text-[10px]">Zero axiom hallucinations</span>
+              </div>
+              <div>
+                <span className="text-neutral-500 block text-[10px] uppercase">Reasoning Horizon</span>
+                <span className="text-base text-white font-semibold mt-0.5 block">1M Tokens</span>
+                <span className="text-neutral-500 text-[10px]">Test-time MCTS tree</span>
+              </div>
+              <div>
+                <span className="text-neutral-500 block text-[10px] uppercase">Weights & Science</span>
+                <span className="text-base text-neutral-200 font-semibold mt-0.5 block">Open Weights</span>
+                <span className="text-neutral-500 text-[10px]">Apache 2.0 license</span>
               </div>
             </div>
           </div>
+
+          {/* Right Column: Live Interactive Frontier AI Reasoning Machine */}
+          <div className="lg:col-span-6">
+            <div className="relative rounded-lg border border-white/[0.12] bg-[#090a0d]/95 backdrop-blur-2xl shadow-2xl overflow-hidden">
+              
+              {/* Window Header */}
+              <div className="flex flex-wrap items-center justify-between border-b border-white/[0.08] px-4 py-3 bg-white/[0.02]">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="h-2.5 w-2.5 rounded-full bg-neutral-600" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-neutral-600" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-neutral-600" />
+                  </div>
+                  <span className="ml-2 font-mono text-xs text-neutral-300 flex items-center gap-1.5">
+                    <Activity className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+                    syntheta-2.5-reasoner // live stream
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2 font-mono text-[11px] text-neutral-400">
+                  <span className="text-emerald-400">214 tok/s</span>
+                  <span>•</span>
+                  <span>FP8 Engine</span>
+                </div>
+              </div>
+
+              {/* Task Selector Tabs */}
+              <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0c0d12] text-xs font-mono">
+                <button
+                  onClick={() => setActiveTask("math")}
+                  className={`py-2 px-3 text-center transition-colors border-r border-white/[0.08] ${
+                    activeTask === "math"
+                      ? "bg-white/[0.06] text-white font-medium border-b-2 border-b-white"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  Theorem Proving
+                </button>
+                <button
+                  onClick={() => setActiveTask("agent")}
+                  className={`py-2 px-3 text-center transition-colors border-r border-white/[0.08] ${
+                    activeTask === "agent"
+                      ? "bg-white/[0.06] text-white font-medium border-b-2 border-b-white"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  Agent Consensus
+                </button>
+                <button
+                  onClick={() => setActiveTask("circuit")}
+                  className={`py-2 px-3 text-center transition-colors ${
+                    activeTask === "circuit"
+                      ? "bg-white/[0.06] text-white font-medium border-b-2 border-b-white"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  Neural Circuits
+                </button>
+              </div>
+
+              {/* Console Body */}
+              <div className="p-5 space-y-4 font-mono text-xs">
+                
+                {/* Input Problem Statement */}
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-[11px] text-neutral-500">
+                    <span>OBJECTIVE FUNCTION:</span>
+                    <span>SEED: #841029</span>
+                  </div>
+                  <p className="text-white text-xs bg-white/[0.02] border border-white/[0.06] p-2.5 rounded font-mono leading-relaxed">
+                    {tasks[activeTask].prompt}
+                  </p>
+                </div>
+
+                {/* Collapsible Chain-of-Thought Search Tree */}
+                <div className="border border-white/[0.08] rounded bg-[#06070a] overflow-hidden">
+                  <button
+                    onClick={() => setIsThinkingOpen(!isThinkingOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 bg-white/[0.02] text-neutral-400 hover:text-white text-[11px]"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <GitBranch className="h-3.5 w-3.5 text-neutral-500" />
+                      <span>Reasoning Trace (MCTS Search Steps)</span>
+                    </span>
+                    {isThinkingOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                  </button>
+
+                  {isThinkingOpen && (
+                    <div className="p-3 space-y-2 border-t border-white/[0.06] text-[11px] text-neutral-400">
+                      {tasks[activeTask].thoughts.map((step, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <span className="text-neutral-600 shrink-0">[{idx + 1}]</span>
+                          <span className="text-neutral-300">{step}</span>
+                        </div>
+                      ))}
+                      {isRunning && (
+                        <div className="flex items-center gap-2 text-emerald-400 pt-1 animate-pulse">
+                          <RotateCcw className="h-3 w-3 animate-spin" />
+                          <span>Searching latent proof paths across 16 parallel branches...</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Verified Output & Formal Verification Proof */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px] text-neutral-500">
+                    <span>FORMAL PROOF SYNTHESIS:</span>
+                    <span className="text-emerald-400 flex items-center gap-1">
+                      <ShieldCheck className="h-3.5 w-3.5" /> VERIFIED
+                    </span>
+                  </div>
+                  <pre className="p-3 bg-[#030406] border border-white/[0.08] rounded text-emerald-300 text-[11px] overflow-x-auto leading-relaxed">
+                    <code>{tasks[activeTask].code}</code>
+                  </pre>
+                </div>
+
+                {/* Certification Badge */}
+                <div className="flex items-center justify-between pt-2 border-t border-white/[0.06] text-[10px] text-neutral-400">
+                  <span className="text-emerald-400 font-semibold">{tasks[activeTask].cert}</span>
+                  <button
+                    onClick={handleRunSimulation}
+                    disabled={isRunning}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-white font-mono transition-colors"
+                  >
+                    {isRunning ? (
+                      <RotateCcw className="h-3 w-3 animate-spin" />
+                    ) : (
+                      <Play className="h-3 w-3 fill-white" />
+                    )}
+                    <span>Re-Verify</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Console Live Telemetry Footer */}
+              <div className="grid grid-cols-4 divide-x divide-white/[0.06] border-t border-white/[0.08] bg-[#0c0d12] px-4 py-2.5 text-[10px] font-mono text-neutral-400">
+                <div>
+                  <span className="text-neutral-600 block text-[9px]">ENGINE</span>
+                  <span className="text-neutral-200">Syntheta-2.5</span>
+                </div>
+                <div className="pl-3">
+                  <span className="text-neutral-600 block text-[9px]">LATENCY</span>
+                  <span className="text-neutral-200">18ms to token</span>
+                </div>
+                <div className="pl-3">
+                  <span className="text-neutral-600 block text-[9px]">MEMORY</span>
+                  <span className="text-neutral-200">48GB HBM3e</span>
+                </div>
+                <div className="pl-3">
+                  <span className="text-neutral-600 block text-[9px]">STATUS</span>
+                  <span className="text-emerald-400 font-semibold">100% Sound</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-
       </div>
     </section>
   );
