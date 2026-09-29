@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #090a0c;
+  --background: #000000;
   --foreground: #ededed;
 }
 
@@ -13,9 +13,32 @@
 }
 
 body {
-  background-color: #090a0c;
+  background-color: #000000;
   color: #ededed;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  letter-spacing: -0.011em;
+  letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle luxury glow animations */
+@keyframes neonBreath {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.animate-neon-breath {
+  animation: neonBreath 6s ease-in-out infinite;
+}
+
+/* Starry dot matrix pattern */
+.bg-luxury-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
