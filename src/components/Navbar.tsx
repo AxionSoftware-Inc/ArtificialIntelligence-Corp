@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, Globe } from "lucide-react";
 import { siteConfig, theme } from "@/lib/design-system";
 import { locales, localeLabels, type Locale } from "@/i18n/config";
@@ -15,6 +16,7 @@ interface NavbarProps {
 export function Navbar({ dict, lang }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +27,23 @@ export function Navbar({ dict, lang }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: dict.products, href: "#products" },
-    { label: dict.solutions, href: "#solutions" },
-    { label: dict.process, href: "#process" },
-    { label: dict.impact, href: "#impact" },
-    { label: dict.contact, href: "#contact" },
+    { label: dict.products, href: `/${lang}#products` },
+    { label: dict.solutions, href: `/${lang}#solutions` },
+    { label: dict.process, href: `/${lang}#process` },
+    { label: dict.impact, href: `/${lang}#impact` },
+    { label: dict.contact, href: `/${lang}#contact` },
   ];
+
+  // Helper to switch locale while preserving current path (e.g., on product page)
+  const getLocalizedPath = (targetLocale: Locale) => {
+    if (!pathname) return `/${targetLocale}`;
+    const segments = pathname.split("/");
+    if (segments.length >= 2) {
+      segments[1] = targetLocale;
+      return segments.join("/");
+    }
+    return `/${targetLocale}`;
+  };
 
   return (
     <header
@@ -41,8 +54,17 @@ export function Navbar({ dict, lang }: NavbarProps) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12">
-        {/* Brand Logo */}
+        {/* Brand Logo with Icon */}
         <Link href={`/${lang}`} className="flex items-center gap-2.5 group">
+          {/* Bespoke Logo Icon */}
+          <div className="h-7 w-7 rounded-lg border border-white/20 bg-gradient-to-b from-white/10 to-transparent p-1 flex items-center justify-center shadow-[0_0_12px_rgba(56,189,248,0.25)] group-hover:border-cyan-400/50 transition-colors">
+            <svg viewBox="0 0 24 24" fill="none" className="h-full w-full">
+              <polygon points="12,4 19,8 12,12 5,8" stroke="#38bdf8" strokeWidth="1.8" />
+              <polygon points="5,8 12,12 12,19 5,15" fill="#1e293b" />
+              <polygon points="12,12 19,8 19,15 12,19" fill="#0f172a" />
+            </svg>
+          </div>
+
           <span className="text-base sm:text-lg font-bold tracking-[0.14em] text-white uppercase font-sans">
             {siteConfig.brand.name}
           </span>
@@ -74,7 +96,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
               return (
                 <Link
                   key={l}
-                  href={`/${l}`}
+                  href={getLocalizedPath(l)}
                   className={`px-2.5 py-1 text-[11px] font-mono tracking-wider rounded-full transition-all duration-200 ${
                     isActive
                       ? "bg-white text-black font-semibold shadow-sm"
@@ -90,7 +112,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
 
           {/* CTA Button */}
           <Link
-            href="#contact"
+            href={`/${lang}#contact`}
             className={theme.components.buttonOutline}
           >
             <span>{dict.cta}</span>
@@ -105,7 +127,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
             {locales.map((l) => (
               <Link
                 key={l}
-                href={`/${l}`}
+                href={getLocalizedPath(l)}
                 className={`px-2 py-0.5 text-[10px] font-mono rounded-full ${
                   l === lang
                     ? "bg-white text-black font-bold"
@@ -145,7 +167,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
 
           <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
             <Link
-              href="#contact"
+              href={`/${lang}#contact`}
               onClick={() => setIsOpen(false)}
               className="inline-flex items-center justify-center w-full rounded-full border border-white/30 bg-white/[0.05] py-2.5 text-xs font-medium text-white hover:bg-white hover:text-black transition-all"
             >

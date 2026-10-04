@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#141923" />
+      <stop offset="100%" stop-color="#05070a" />
+    </radialGradient>
+
+    <!-- Neon Cyan Light Gradient -->
+    <linearGradient id="cyanNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Subtle Metallic Pillar Gradient -->
+    <linearGradient id="monolithGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a3342" />
+      <stop offset="50%" stop-color="#181f2a" />
+      <stop offset="100%" stop-color="#0f131a" />
+    </linearGradient>
+
+    <!-- Glowing Halo Filter -->
+    <filter id="neonBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Container -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGlow)" />
+  <rect width="63" height="63" x="0.5" y="0.5" rx="15.5" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+
+  <!-- Ascending Monolith Base (Isometric 3D Pillar) -->
+  <!-- Top Face of Pillar -->
+  <polygon points="32,27 48,34 32,41 16,34" fill="#1f2633" stroke="#334155" stroke-width="0.8" />
+  
+  <!-- Left Face of Pillar -->
+  <polygon points="16,34 32,41 32,53 16,46" fill="url(#monolithGrad)" opacity="0.9" />
+  
+  <!-- Right Face of Pillar -->
+  <polygon points="32,41 48,34 48,46 32,53" fill="#0b0e14" />
+
+  <!-- Floating Neon Square Halo (Hovering above pillar) -->
+  <polygon points="32,15 48,22 32,29 16,22" 
+           fill="none" 
+           stroke="url(#cyanNeon)" 
+           stroke-width="3" 
+           stroke-linejoin="round"
+           filter="url(#neonBloom)" />
+
+  <!-- Inner Spark / Core Point -->
+  <circle cx="32" cy="22" r="1.5" fill="#ffffff" filter="url(#neonBloom)" />
+</svg>

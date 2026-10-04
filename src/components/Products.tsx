@@ -9,7 +9,7 @@ interface ProductsProps {
   lang: Locale;
 }
 
-export function Products({ dict }: ProductsProps) {
+export function Products({ dict, lang }: ProductsProps) {
   return (
     <section
       id="products"
@@ -48,7 +48,13 @@ export function Products({ dict }: ProductsProps) {
                   </span>
                 </div>
 
-                <h3 className={`${theme.typography.h3} mb-3`}>{product.name}</h3>
+                <Link href={`/${lang}/products/${product.slug}`} className="group/title block">
+                  <h3 className={`${theme.typography.h3} mb-3 group-hover/title:text-white transition-colors flex items-center justify-between`}>
+                    <span>{product.name}</span>
+                    <ArrowUpRight className="h-4 w-4 text-neutral-500 group-hover/title:text-cyan-400 transition-colors" />
+                  </h3>
+                </Link>
+
                 <p className={`${theme.typography.bodyMedium} mb-8`}>
                   {product.summary}
                 </p>
@@ -66,10 +72,20 @@ export function Products({ dict }: ProductsProps) {
                 </ul>
               </div>
 
-              <div className="mt-10 pt-6 border-t border-white/[0.06]">
-                <Link href="#contact" className={theme.components.buttonSecondary}>
-                  <span>{product.cta}</span>
+              <div className="mt-10 pt-6 border-t border-white/[0.06] flex items-center justify-between">
+                <Link
+                  href={`/${lang}/products/${product.slug}`}
+                  className={theme.components.buttonSecondary}
+                >
+                  <span>{dict.learnMore}</span>
                   <ArrowUpRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white transition-colors" />
+                </Link>
+
+                <Link
+                  href={`/${lang}#contact`}
+                  className="text-xs font-mono text-neutral-400 hover:text-white transition-colors px-2 py-1"
+                >
+                  {product.cta}
                 </Link>
               </div>
             </article>

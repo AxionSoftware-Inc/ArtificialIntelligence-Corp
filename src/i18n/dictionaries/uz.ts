@@ -5,6 +5,8 @@ export const uz: Dictionary = {
     title: "Syntheta AI: amaliy sun'iy intellekt tadqiqot laboratoriyasi",
     description:
       "Biz qurilmada ishlaydigan til modellari hamda dasturlash va ilmiy tadqiqot uchun avtonom agentlar yaratamiz.",
+    keywords:
+      "qurilmadagi AI, avtonom dasturlash agenti, ilmiy tadqiqot sun'iy intellekti, lokal til modeli, o'zbekcha AI, xususiy hisoblash, Syntheta",
   },
   nav: {
     products: "Mahsulotlar",
@@ -32,9 +34,11 @@ export const uz: Dictionary = {
     titleLine2: "Bitta tadqiqot laboratoriyasi.",
     description:
       "O'zimiz yaratib, o'zimiz chiqaradigan modellar: telefondagi lokal yordamchi hamda dasturlash va ilm-fan uchun avtonom agentlar.",
+    learnMore: "Loyiha sahifasiga o'tish",
     items: [
       {
         id: "mobile-agent",
+        slug: "syntheta-mobile",
         category: "Qurilmadagi agent",
         name: "Syntheta Mobile",
         summary:
@@ -45,10 +49,11 @@ export const uz: Dictionary = {
           "Oddiy so'rov bo'yicha ilova va sozlamalarni boshqaradi",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Erta kirishga so'rov yuborish",
+        cta: "Syntheta Mobile sahifasi",
       },
       {
         id: "coder",
+        slug: "syntheta-code",
         category: "Dasturlash agenti",
         name: "Syntheta Code",
         summary:
@@ -59,10 +64,11 @@ export const uz: Dictionary = {
           "Har bir o'zgarish siz ko'rib tasdiqlaydigan diff ko'rinishida",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Erta kirishga so'rov yuborish",
+        cta: "Syntheta Code sahifasi",
       },
       {
         id: "researcher",
+        slug: "syntheta-research",
         category: "Tadqiqot agenti",
         name: "Syntheta Research",
         summary:
@@ -73,7 +79,7 @@ export const uz: Dictionary = {
           "Har bir da'vo tekshirish mumkin bo'lgan manbaga bog'langan",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Erta kirishga so'rov yuborish",
+        cta: "Syntheta Research sahifasi",
       },
     ],
   },
@@ -207,5 +213,246 @@ export const uz: Dictionary = {
     careers: "Vakansiyalar",
     privacy: "Maxfiylik siyosati",
     rights: "Barcha huquqlar himoyalangan.",
+  },
+  productCommon: {
+    breadcrumbHome: "Bosh sahifa",
+    breadcrumbProducts: "Mahsulotlar",
+    backToHome: "Bosh sahifaga qaytish",
+    keySpecifications: "Tizim spetsifikatsiyalari",
+    coreCapabilities: "Asosiy arxitektura va imkoniyatlar",
+    pipelineTitle: "Ishlash bosqichlari",
+    interactiveDemoTitle: "Interaktiv namoyish",
+    earlyAccessBadge: "Dasturchilarning yopiq guruhi 2026",
+    requestAccessButton: "Erta kirishga so'rov yuborish",
+    bookPilotButton: "Korporativ sinovni rejalashtirish",
+    statusBadge: "Loyiha holati",
+    securityGuarantee: "To'liq izolyatsiya qilingan muhit — ma'lumotlar faqat o'z xavfsizlik perimetringizda saqlanadi.",
+  },
+  productPages: {
+    "syntheta-mobile": {
+      slug: "syntheta-mobile",
+      badge: "Qurilmadagi AI // Nol kechikish",
+      name: "Syntheta Mobile",
+      tagline: "Smartfonni to'liq o'zbek tilida avtonom boshqaruvchi, faqat qurilmaning o'zida ishlaydigan lokal sun'iy intellekt.",
+      description:
+        "Syntheta Mobile — mobil protsessorlarning NPU chipida lokal ishlashga moslashtirilgan ixcham model. U ilovalarning interfeysini tushunadi, foydalanuvchi nomidan bosqichma-bosqich amallarni bajaradi va so'zlashuv o'zbek tilidagi og'zaki hamda yozma so'rovlarni tashqi serverlarga yubormasdan to'liq telefonda qayta ishlaydi.",
+      stats: [
+        { label: "Operativ xotira", value: "< 1.4 GB" },
+        { label: "NPU kechikishi", value: "< 12 ms" },
+        { label: "Internetga sarf", value: "0 bayt" },
+        { label: "O'zbek tili", value: "Mahalliy" },
+      ],
+      features: [
+        {
+          title: "O'zbek tilining tabiiy morfologiyasi",
+          description:
+            "O'zbek adabiy tili va kundalik so'zlashuv boy korpusi asosida o'qitilgan. Lotin va kirill yozuvlarini, turli lahjaviy qisqartmalarni va nozik iboralarni aniq tushunadi.",
+          tag: "Til modeli",
+        },
+        {
+          title: "Ekran va ilovalarni avtonom boshqarish",
+          description:
+            "Ilovalarning tuzilishi va tugmalarini semantik tahlil qiladi. Foydalanuvchi iltimosi bilan tugmalarni bosadi, shakllarni to'ldiradi va ilovalararo jarayonlarni yakunlaydi.",
+          tag: "Mobil agent",
+        },
+        {
+          title: "To'liq avtonom xavfsizlik perimetri",
+          description:
+            "Telefonning apparat darajasidagi xavfsiz anklavida ishlaydi. Aloqa yoki Wi-Fi tarmog'i talab etilmaydi, shaxsiy yozishmalar va parollar hech qachon qurilmadan tashqariga chiqmaydi.",
+          tag: "Xavfsiz anklav",
+        },
+        {
+          title: "4-bitli NPU optimallashuvi",
+          description:
+            "Snapdragon Hexagon, MediaTek APU va Apple Neural Engine chiplari uchun chuqur INT4/FP4 kvantlash bilan batareya sarfini minimal darajada saqlaydi.",
+          tag: "NPU tezlatgichi",
+        },
+      ],
+      specs: [
+        { label: "Model hajmi", value: "1.8B – 3.2B kvantlangan arxitektura" },
+        { label: "Ishlash muhiti", value: "ONNX Runtime Mobile & CoreML / TFLite" },
+        { label: "Minimal talab", value: "Android 12+ (Snapdragon 8 Gen 2+) / iOS 17+" },
+        { label: "Oflayn ovoz tanish", value: "Integratsiyalangan Conformer-CTC o'zbek akustik modeli" },
+        { label: "Ma'lumotlar sizib chiqishi", value: "0.00% (To'liq internetsiz rejim)" },
+        { label: "Batareya iste'moli", value: "100 ta vazifa uchun 1.5% dan kam" },
+      ],
+      pipeline: [
+        {
+          step: "01",
+          name: "Ovoz va matn tahlilchisi",
+          detail: "O'zbek tilidagi og'zaki yoki yozma so'rovni bevosita qurilma NPU chipida tokenlarga ajratadi.",
+        },
+        {
+          step: "02",
+          name: "Ilova interfeysini semantik o'qish",
+          detail: "Ekranning mavjud elementlarini tahlil qilib, foydalanuvchi niyatini amallarga aylantiradi.",
+        },
+        {
+          step: "03",
+          name: "Bosqichma-bosqich ijro etish",
+          detail: "Tugmalarni bosish, yozish va sahifalararo o'tishni har bir qadam natijasini tekshirib bajaradi.",
+        },
+      ],
+      demoSimulation: {
+        userPrompt: "Telegramda Akmalga: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz' deb yoz va kalendarga eslatma qo'sh.",
+        agentSteps: [
+          "[Qurilma NPU]: O'zbekcha so'rov tahlil qilindi: 1. Telegramda xabar, 2. Kalendarga eslatma.",
+          "[Lokal Agent]: Telegram ochilmoqda -> 'Akmal' kontakti topildi.",
+          "[Lokal Agent]: Xabar kiritildi: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz'. Yuborildi.",
+          "[Lokal Agent]: Qurilma Kalendariga o'tilmoqda -> Ertaga 10:00 ga uchrashuv belgilandi.",
+          "[Qurilma NPU]: Vazifalar 420 ms ichida to'liq yakunlandi. Internet sarflanmadi.",
+        ],
+      },
+    },
+    "syntheta-code": {
+      slug: "syntheta-code",
+      badge: "Avtonom dasturlash agenti // CLI & IDE",
+      name: "Syntheta Code",
+      tagline: "Repozitoriyani to'liq tushunadigan, kod yozadigan, testlarni o'tkazadigan va toza diff tayyorlaydigan avtonom dasturchi.",
+      description:
+        "Syntheta Code — ishlab chiqarishdagi yirik kod bazalari uchun mo'ljallangan avtonom agent. U terminalda yoki dasturlash muhitingizda ishlaydi, 256k tokenlik keng kontekstda bir nechta fayllardagi bog'liqliklarni tahlil qiladi, testlarni xavfsiz muhitda tekshiradi va barcha testlar muvaffaqiyatli o'tgach, sizga ko'rib chiqish uchun tartibli diff taqdim etadi.",
+      stats: [
+        { label: "Kontekst hajmi", value: "256k token" },
+        { label: "Ko'p faylli tahrir", value: "Avtomatik" },
+        { label: "Testlarni tuzatish", value: "Mustaqil" },
+        { label: "Nazorat", value: "100% Diff asosida" },
+      ],
+      features: [
+        {
+          title: "Butun repozitoriy semantik grafigi",
+          description:
+            "Loyiha arxitekturasi, murakkab importlar va modullar bo'yicha to'liq bog'liqliklar daraxtini yaratadi va mavjud bo'lmagan funksiyalarni to'qib chiqarmaydi.",
+          tag: "Repozitoriy grafigi",
+        },
+        {
+          title: "O'zini tekshiruvchi test va build zanjiri",
+          description:
+            "Loyiha buyruqlarini (cargo, pytest, npm, go test) ishga tushiradi. Agar xatolik chiqsa, stektresni tahlil qilib, testlar to'liq yashil bo'lgunicha o'zgartirish kiritadi.",
+          tag: "Avto-iteratsiya",
+        },
+        {
+          title: "Har bir o'zgarishni alohida tasdiqlash",
+          description:
+            "Fayllarga yashirin o'zgartirish kiritmaydi. Har bir qadam git diff ko'rinishida aniq ko'rsatiladi va faqat sizning tasdig'ingiz bilan saqlanadi.",
+          tag: "Git integratsiyasi",
+        },
+        {
+          title: "Izolyatsiya qilingan xavfsiz sendboks",
+          description:
+            "Buyruqlarni cheklangan konteynerlarda bajaradi, tarmoqqa ruxsatsiz chiqishlarni bloklaydi va maxfiy kalitlarni (secret) avtomatik yashiradi.",
+          tag: "Xavfsiz muhit",
+        },
+      ],
+      specs: [
+        { label: "Kontekst sig'imi", value: "256,000 tokenlik faol kesh" },
+        { label: "Qo'llab-quvvatlanuvchi vositalar", value: "Git, Bash, Zsh, Docker, Nix, VS Code, JetBrains" },
+        { label: "Dasturlash tillari", value: "TypeScript, Python, Rust, Go, C++, Swift, Java" },
+        { label: "Sendboks xavfsizligi", value: "Bubblewrap va konteynerli izolyatsiya" },
+        { label: "Tekshiruv mezoni", value: "Kompilyatsiya va unit testlarning to'liq o'tishi" },
+        { label: "O'rnatish turi", value: "Lokal CLI yoki korxona ichki klasteri" },
+      ],
+      pipeline: [
+        {
+          step: "01",
+          name: "Loyiha arxitekturasini o'rganish",
+          detail: "Kod bazasi strukturasi, bog'liqliklar va linter qoidalarini skanerlab reja tuzadi.",
+        },
+        {
+          step: "02",
+          name: "Rejalashtirish va kod sintezi",
+          detail: "Vazifani mantiqiy qismlarga ajratadi va turlarning butunligini saqlagan holda fayllarni tahrirlaydi.",
+        },
+        {
+          step: "03",
+          name: "Sendboksda tekshiruv va tasdiqlash",
+          detail: "Testlarni ishga tushiradi, xatolarni bartaraf etadi va tasdiqlash uchun tartibli diff chiqaradi.",
+        },
+      ],
+      demoSimulation: {
+        userPrompt: "$ syntheta refactor --fix-race-condition src/worker/queue.ts",
+        agentSteps: [
+          "[Syntheta Code]: queue.ts konkurentlik tuzilmasi va tegishli test fayllari o'rganilmoqda.",
+          "[Syntheta Code]: sync_job() funksiyasida yuqori yuklamada bloklanish (mutex starvation) aniqlandi.",
+          "[Syntheta Code]: queue.ts va pool.ts bo'ylab nobloklovchi ring bufer tuzilmasi tatbiq etildi.",
+          "[Syntheta Code]: 'npm test' bajarildi -> 18 ta test o'tdi, 0 xato. Vaqt: 1.8s.",
+          "[Syntheta Code]: Git diff tayyor: +38 / -14 qator. Ko'rib chiqishingiz mumkin.",
+        ],
+      },
+    },
+    "syntheta-research": {
+      slug: "syntheta-research",
+      badge: "Ilmiy kashfiyot agenti // Formal mantiq",
+      name: "Syntheta Research",
+      tagline: "Millionlab ilmiy maqolalarni o'rganuvchi, matematik isbotlarni tekshiruvchi va takrorlanuvchi hisob-kitoblarni bajaruvchi agent.",
+      description:
+        "Syntheta Research taqrizdan o'tgan ilmiy maqolalar va klinik/genomik ma'lumotlar bazalarida chuqur tadqiqotlar olib boradi. Ilmiy adabiyotlarni umumlashtiradi, Lean 4 va Z3 kabi formal tekshirish vositalari orqali teoremalarni isbotlaydi va har bir xulosani birlamchi manbaga havola bilan tasdiqlaydi.",
+      stats: [
+        { label: "Ilmiy maqolalar", value: "100M+ maqola" },
+        { label: "Isbotlash yadrosi", value: "Lean 4 / Z3" },
+        { label: "Soxta havolalar", value: "0.00%" },
+        { label: "Takrorlanuvchanlik", value: "100% Docker" },
+      ],
+      features: [
+        {
+          title: "Birlamchi manbalarga qat'iy bog'liqlik",
+          description:
+            "Har bir ilmiy da'vo to'g'ridan-to'g'ri haqiqiy DOI, PubMed ID yoki arXiv havolasiga tayanadi. Asossiz farazlar tekshiruv yadrosi tomonidan rad etiladi.",
+          tag: "Manba isboti",
+        },
+        {
+          title: "Interaktiv matematik teoremalarni isbotlash",
+          description:
+            "Lean 4 va Z3 SMT yechuvchilari bilan integratsiyalashib, matematik mantiqiy zanjirlarni tekshiradi va spetsifikatsiyalardagi bo'shliqlarni yo'qotadi.",
+          tag: "Formal mantiq",
+        },
+        {
+          title: "O'z-o'zini bajaruvchi hisoblash noutbuklari",
+          description:
+            "Statistik tajribalarni mustaqil takrorlash uchun aniq kutubxonalar va ma'lumotlar to'plami bilan ta'minlangan Jupyter noutbuklarini yaratadi.",
+          tag: "Takrorlanuvchanlik",
+        },
+        {
+          title: "Fanlararo sintez",
+          description:
+            "Biotexnologiya, mashinali o'rganish, fizika va hisoblash biologiyasi sohalaridagi bilimlarni birlashtirib, yangi ilmiy gipotezalarni shakllantiradi.",
+          tag: "Chuqur qidiruv",
+        },
+      ],
+      specs: [
+        { label: "Qo'llab-quvvatlanuvchi bazalar", value: "arXiv, PubMed, Nature, Science, IEEE, OpenAlex, ChEMBL" },
+        { label: "Isbotlash mexanizmi", value: "Lean 4 Kernel + Z3 SMT Solver" },
+        { label: "Chiqarish formatlari", value: "LaTeX maqola qoralamasi, PDF hisobot, Docker muhiti" },
+        { label: "Havolalarni tekshirish", value: "DOI reestri bo'yicha 100% verifikatsiya" },
+        { label: "Klasterda ishlash", value: "Xususiy yopiq GPU superklasterlarida ishga tushirish imkoniyati" },
+        { label: "Hujjatlar yaxlitligi", value: "Barcha xulosalar kriptografik xesh bilan tasdiqlanadi" },
+      ],
+      pipeline: [
+        {
+          step: "01",
+          name: "Ilmiy adabiyotlarni keng qidirish",
+          detail: "Ilmiy API'lar va vektorli indekslar orqali dolzarb va ishonchli maqolalar to'plamini yig'adi.",
+        },
+        {
+          step: "02",
+          name: "Formal da'volar va isbotlar tekshiruvi",
+          detail: "Matematik formulalarni Lean 4 kodiga o'giradi va aksiomalar asosida haqiqiyligini tekshiradi.",
+        },
+        {
+          step: "03",
+          name: "Xulosa va hisoblash paketini tayyorlash",
+          detail: "To'liq tekshirilgan ilmiy xulosani bibliografik havolalar va hisoblash kodi bilan taqdim etadi.",
+        },
+      ],
+      demoSimulation: {
+        userPrompt: "Mobil qurilmalar uchun 4-bitli transformer kvantlash bo'yicha 2025-2026 yillardagi yutuqlarni umumlashtir.",
+        agentSteps: [
+          "[Syntheta Research]: arXiv va IEEE bazalaridan 142 ta taqrizdan o'tgan maqola tahlil qilindi.",
+          "[Syntheta Research]: Mobil NPU xotira o'tkazuvchanligi va aniqlik balansi bo'yicha Pareto grafigi tuzildi.",
+          "[Syntheta Research]: Chiqish qiymatlarini silliqlash bo'yicha matematik isbotlar Lean 4 da tasdiqlandi.",
+          "[Syntheta Research]: PyTorch va Triton yadrolari bilan tajribani takrorlash skripti shakllantirildi.",
+          "[Syntheta Research]: 24 ta tekshirilgan manba bilan ilmiy xulosa tayyorlandi, asossiz da'volar yo'q.",
+        ],
+      },
+    },
   },
 };
