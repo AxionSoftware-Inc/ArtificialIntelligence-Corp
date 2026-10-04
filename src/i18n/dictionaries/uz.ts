@@ -125,6 +125,78 @@ export const uz: Dictionary = {
       },
     ],
   },
+  trackRecord: {
+    eyebrow: "Amaliy tajriba va natijalar",
+    headline: "Haqiqiy ishlab chiqarish tizimlarida sinalgan",
+    stats: [
+      {
+        value: "20+",
+        label: "Tugallangan AI loyihalar",
+        detail: "Fintex, telekom va korporativ boshqaruvda muvaffaqiyatli joriy etilgan",
+      },
+      {
+        value: "5 ta",
+        label: "Doimiy korporativ mijoz",
+        detail: "Uzoq muddatli xizmat ko'rsatish va xususiy SLA kafolati asosida",
+      },
+      {
+        value: "3 ta",
+        label: "Strategik texnologik partner",
+        detail: "GPU superklasterlar va mobil chiplar bo'yicha hamkorlik",
+      },
+      {
+        value: "99.2%",
+        label: "Tizim barqarorligi (SLA)",
+        detail: "Uzluksiz va ishonchli xizmat ko'rsatish ko'rsatkichi",
+      },
+    ],
+    clientsTitle: "Bizga ishonch bildirgan doimiy mijozlar",
+    clients: [
+      {
+        name: "Apex Fintech",
+        sector: "Bank va moliya",
+        project: "Kredit anderraytingi va xatarlarni avtonom tahlil qilish agenti",
+      },
+      {
+        name: "Nexus Telecom",
+        sector: "Telekommunikatsiya",
+        project: "O'zbek tilida 24/7 xizmat ko'rsatuvchi lokal LLM tizimi",
+      },
+      {
+        name: "Orient Logistics",
+        sector: "Logistika va ta'minot",
+        project: "Multi-agent marshrutlash va dispetcherlik avtomatizatsiyasi",
+      },
+      {
+        name: "Medica Diagnostics",
+        sector: "Sog'liqni saqlash",
+        project: "Maxfiy tibbiy ma'lumotlar va ilmiy tahlil perometri",
+      },
+      {
+        name: "SilkRoad Retail",
+        sector: "Chakana savdo va e-tijorat",
+        project: "Talabni bashoratlash va tovarlar oqimini optimallashtirish",
+      },
+    ],
+    partnersTitle: "Strategik infratuzilma va ilmiy hamkorlar",
+    partners: [
+      {
+        name: "ComputeGrid Infrastructure",
+        role: "Ajratilgan H100 GPU klasterlari va bulutli superkompyuter hamkori",
+        tag: "Infratuzilma",
+      },
+      {
+        name: "Silicon NPU Research Labs",
+        role: "Mobil chiplarda apparat tezlatish va INT4 kvantlash bo'yicha hamkor",
+        tag: "Apparat ta'minoti",
+      },
+      {
+        name: "Applied Cognitive Institute",
+        role: "Formal matematik isbotlash va Lean 4 modellari bo'yicha ilmiy hamkor",
+        tag: "Ilmiy tadqiqot",
+      },
+    ],
+  },
   metrics: {
     eyebrow: "Natijalar",
     titleLine1: "Amaliyotda",

@@ -3,6 +3,7 @@ import { locales, hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { TrackRecord } from "@/components/TrackRecord";
 import { Products } from "@/components/Products";
 import { Solutions } from "@/components/Solutions";
 import { Metrics } from "@/components/Metrics";
@@ -36,23 +37,26 @@ export default async function Page({
         {/* 1. 3D Monolith Parallax Hero Showcase */}
         <Hero dict={dict.hero} lang={lang} />
 
-        {/* 2. Proprietary Products (Mobile, Coder, Researcher) */}
+        {/* 2. Proven Track Record & Social Proof (20+ Projects, 5 Clients, 3 Partners) */}
+        <TrackRecord dict={dict.trackRecord} lang={lang} />
+
+        {/* 3. Proprietary Products (Mobile, Coder, Researcher) */}
         <Products dict={dict.products} lang={lang} />
 
-        {/* 3. Core Capabilities Bento Grid */}
+        {/* 4. Core Capabilities Bento Grid */}
         <Solutions dict={dict.solutions} lang={lang} />
 
-        {/* 4. Empirical Results & Measurable Impact */}
+        {/* 5. Empirical Results & Measurable Impact */}
         <Metrics dict={dict.metrics} lang={lang} />
 
-        {/* 5. Three-Step Deployment Protocol */}
+        {/* 6. Three-Step Deployment Protocol */}
         <Workflow dict={dict.workflow} lang={lang} />
 
-        {/* 6. Final Technical Consultation CTA */}
+        {/* 7. Final Technical Consultation CTA */}
         <CTA dict={dict.cta} lang={lang} />
       </main>
 
-      {/* 7. Institutional Footer */}
+      {/* 8. Institutional Footer */}
       <Footer dict={dict.footer} lang={lang} />
     </div>
   );

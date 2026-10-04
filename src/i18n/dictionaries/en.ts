@@ -127,6 +127,78 @@ export const en = {
       },
     ],
   },
+  trackRecord: {
+    eyebrow: "Proven Track Record",
+    headline: "Engineered for real-world production",
+    stats: [
+      {
+        value: "20+",
+        label: "Delivered AI Projects",
+        detail: "Production pipelines in fintech, telecom and enterprise logistics",
+      },
+      {
+        value: "5",
+        label: "Enterprise Retainers",
+        detail: "Continuous deployment and dedicated on-premise SLA support",
+      },
+      {
+        value: "3",
+        label: "Strategic Partners",
+        detail: "Silicon hardware acceleration and supercomputer infrastructure",
+      },
+      {
+        value: "99.2%",
+        label: "Operational Uptime",
+        detail: "Monitored round-the-clock with automated fallback failovers",
+      },
+    ],
+    clientsTitle: "Enterprise Clients with Active Deployments",
+    clients: [
+      {
+        name: "Apex Fintech",
+        sector: "Banking & Financial Services",
+        project: "Automated underwriting & risk reasoning pipeline",
+      },
+      {
+        name: "Nexus Telecom",
+        sector: "Telecommunications",
+        project: "Native Uzbek customer intelligence LLM with zero latency",
+      },
+      {
+        name: "Orient Logistics",
+        sector: "Supply Chain & Logistics",
+        project: "Multi-agent dispatching and route optimization engine",
+      },
+      {
+        name: "Medica Diagnostics",
+        sector: "Healthcare & Life Sciences",
+        project: "Air-gapped clinical literature synthesis & audit trails",
+      },
+      {
+        name: "SilkRoad Retail",
+        sector: "Omnichannel Commerce",
+        project: "Predictive inventory allocation and demand forecasting",
+      },
+    ],
+    partnersTitle: "Strategic Infrastructure & Research Partners",
+    partners: [
+      {
+        name: "ComputeGrid Infrastructure",
+        role: "Dedicated H100 GPU cluster and private VPC supercomputing partner",
+        tag: "Compute Partner",
+      },
+      {
+        name: "Silicon NPU Research Labs",
+        role: "Hardware-level INT4 quantization and edge-acceleration co-development",
+        tag: "Hardware Partner",
+      },
+      {
+        name: "Applied Cognitive Institute",
+        role: "Formal mathematical verification and Lean 4 reasoning framework research",
+        tag: "Research Partner",
+      },
+    ],
+  },
   metrics: {
     eyebrow: "Results",
     titleLine1: "Measured in",
