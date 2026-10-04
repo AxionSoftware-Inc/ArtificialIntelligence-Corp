@@ -13,7 +13,7 @@ interface HeroProps {
   lang: Locale;
 }
 
-export function Hero({ dict }: HeroProps) {
+export function Hero({ dict, lang }: HeroProps) {
   return (
     <section 
       className="relative min-h-screen w-full bg-black flex flex-col justify-between overflow-hidden pt-32 pb-10 selection:bg-white/20 selection:text-white"
@@ -59,7 +59,7 @@ export function Hero({ dict }: HeroProps) {
           {/* Action Buttons */}
           <div className="pt-3 flex flex-wrap items-center gap-6">
             <Link
-              href="#contact"
+              href={`/${lang}/services`}
               className={theme.components.buttonPrimary}
             >
               <span>{dict.primary}</span>
@@ -67,7 +67,7 @@ export function Hero({ dict }: HeroProps) {
             </Link>
 
             <Link
-              href="#products"
+              href={`/${lang}/products`}
               className={theme.components.buttonSecondary}
             >
               <span>{dict.secondary}</span>

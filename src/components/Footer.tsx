@@ -37,21 +37,23 @@ export function Footer({ dict, lang }: FooterProps) {
               {dict.productsTitle}
             </span>
             <ul className="space-y-2 text-neutral-500">
-              <li><Link href="#products" className="hover:text-white transition-colors">Syntheta Mobile</Link></li>
-              <li><Link href="#products" className="hover:text-white transition-colors">Syntheta Code</Link></li>
-              <li><Link href="#products" className="hover:text-white transition-colors">Syntheta Research</Link></li>
+              <li><Link href={`/${lang}/products`} className="hover:text-white transition-colors">{dict.productsTitle}</Link></li>
+              <li><Link href={`/${lang}/products/syntheta-mobile`} className="hover:text-white transition-colors">Syntheta Mobile</Link></li>
+              <li><Link href={`/${lang}/products/syntheta-code`} className="hover:text-white transition-colors">Syntheta Code</Link></li>
+              <li><Link href={`/${lang}/products/syntheta-research`} className="hover:text-white transition-colors">Syntheta Research</Link></li>
             </ul>
           </div>
 
-          {/* Column 2: Research */}
+          {/* Column 2: Services */}
           <div className="space-y-3 font-mono text-xs">
             <span className="text-white font-semibold uppercase tracking-wider block">
-              {dict.research}
+              {dict.servicesTitle}
             </span>
             <ul className="space-y-2 text-neutral-500">
-              <li><Link href="#solutions" className="hover:text-white transition-colors">Lean 4 Kernel</Link></li>
-              <li><Link href="#solutions" className="hover:text-white transition-colors">Private Weights</Link></li>
-              <li><Link href="#impact" className="hover:text-white transition-colors">Benchmarks</Link></li>
+              <li><Link href={`/${lang}/services`} className="hover:text-white transition-colors">{dict.servicesTitle}</Link></li>
+              <li><Link href={`/${lang}/services#custom-ai`} className="hover:text-white transition-colors">Custom AI & Agents</Link></li>
+              <li><Link href={`/${lang}/services#model-adaptation`} className="hover:text-white transition-colors">Model Fine-Tuning</Link></li>
+              <li><Link href={`/${lang}/services#hardware-acceleration`} className="hover:text-white transition-colors">Silicon Acceleration</Link></li>
             </ul>
           </div>
 
@@ -61,9 +63,10 @@ export function Footer({ dict, lang }: FooterProps) {
               {dict.companyTitle}
             </span>
             <ul className="space-y-2 text-neutral-500">
-              <li><Link href="#contact" className="hover:text-white transition-colors">{dict.contact}</Link></li>
-              <li><Link href="#contact" className="hover:text-white transition-colors">{dict.careers}</Link></li>
-              <li><Link href="#contact" className="hover:text-white transition-colors">{dict.privacy}</Link></li>
+              <li><Link href={`/${lang}#contact`} className="hover:text-white transition-colors">{dict.contact}</Link></li>
+              <li><Link href={`/${lang}#track-record`} className="hover:text-white transition-colors">{dict.research}</Link></li>
+              <li><Link href={`/${lang}#contact`} className="hover:text-white transition-colors">{dict.careers}</Link></li>
+              <li><Link href={`/${lang}#contact`} className="hover:text-white transition-colors">{dict.privacy}</Link></li>
             </ul>
           </div>
 

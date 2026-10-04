@@ -17,22 +17,32 @@ export function Products({ dict, lang }: ProductsProps) {
     >
       <div className={theme.layout.container}>
         {/* Section Header */}
-        <div className="max-w-2xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
-            <span className="h-1.5 w-1.5 rounded-full bg-neutral-400" />
-            <span>{dict.eyebrow}</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              <span>{dict.eyebrow}</span>
+            </div>
+            <h2 className={theme.typography.h2}>
+              {dict.titleLine1} <br />
+              <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
+            </h2>
+            <p className={theme.typography.bodyLarge}>
+              {dict.description}
+            </p>
           </div>
-          <h2 className={theme.typography.h2}>
-            {dict.titleLine1} <br />
-            <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
-          </h2>
-          <p className={theme.typography.bodyLarge}>
-            {dict.description}
-          </p>
+
+          <Link
+            href={`/${lang}/products`}
+            className="hidden md:inline-flex items-center text-xs font-mono font-medium text-white hover:text-cyan-400 transition-colors"
+          >
+            <span>{dict.viewAll}</span>
+            <ArrowUpRight className="h-4 w-4 ml-1" />
+          </Link>
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
           {dict.items.map((product, idx) => (
             <article
               key={product.id}
@@ -90,6 +100,17 @@ export function Products({ dict, lang }: ProductsProps) {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* View All Products Button */}
+        <div className="text-center pt-2">
+          <Link
+            href={`/${lang}/products`}
+            className={theme.components.buttonOutline}
+          >
+            <span>{dict.viewAll}</span>
+            <ArrowUpRight className="h-4 w-4 ml-1.5" />
+          </Link>
         </div>
       </div>
     </section>

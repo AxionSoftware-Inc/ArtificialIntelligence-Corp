@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrackRecord } from "@/components/TrackRecord";
 import { Products } from "@/components/Products";
-import { Solutions } from "@/components/Solutions";
+import { HomeServices } from "@/components/HomeServices";
 import { Metrics } from "@/components/Metrics";
 import { Workflow } from "@/components/Workflow";
 import { CTA } from "@/components/CTA";
@@ -43,8 +43,8 @@ export default async function Page({
         {/* 3. Proprietary Products (Mobile, Coder, Researcher) */}
         <Products dict={dict.products} lang={lang} />
 
-        {/* 4. Core Capabilities Bento Grid */}
-        <Solutions dict={dict.solutions} lang={lang} />
+        {/* 4. Enterprise Engineering Services (Custom AI, Model Training, System Integration, Hardware) */}
+        <HomeServices dict={dict.services} lang={lang} />
 
         {/* 5. Empirical Results & Measurable Impact */}
         <Metrics dict={dict.metrics} lang={lang} />

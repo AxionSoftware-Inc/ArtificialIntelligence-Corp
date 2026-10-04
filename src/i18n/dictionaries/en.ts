@@ -12,6 +12,7 @@ export const en = {
   },
   nav: {
     products: "Products",
+    services: "Services",
     solutions: "Solutions",
     process: "Process",
     impact: "Impact",
@@ -26,17 +27,18 @@ export const en = {
     titleLine2: "Into Growth Infrastructure.",
     description:
       "We help startups and enterprises integrate AI into marketing, operations and product, without complexity.",
-    primary: "Start an AI project",
-    secondary: "Explore products",
+    primary: "Explore Services",
+    secondary: "View Products",
     imageAlt: "Ascending monoliths with glowing frames",
   },
   products: {
-    eyebrow: "Products",
-    titleLine1: "Three agents.",
-    titleLine2: "One research lab.",
+    eyebrow: "Proprietary Products",
+    titleLine1: "Three specialized agents.",
+    titleLine2: "One sovereign research lab.",
     description:
-      "Models we build and ship ourselves: a local assistant on your phone, and autonomous agents for engineering and science.",
+      "Autonomous systems built from the ground up: an on-device local engine for smartphones, and autonomous agents for software engineering and scientific research.",
     learnMore: "Deep-dive project page",
+    viewAll: "Explore All Products",
     items: [
       {
         id: "mobile-agent",
@@ -84,6 +86,184 @@ export const en = {
         cta: "Explore Syntheta Research",
       },
     ],
+  },
+  services: {
+    eyebrow: "Engineering Services",
+    titleLine1: "Bespoke AI Engineering.",
+    titleLine2: "Engineered for Your Infrastructure.",
+    description:
+      "We design custom neural networks, fine-tune models on confidential data, integrate with enterprise ERPs, and optimize inference on specialized hardware.",
+    viewAll: "Explore All Services",
+    requestAudit: "Request Architecture Consultation",
+    learnMore: "Technical details",
+    items: [
+      {
+        id: "custom-ai",
+        slug: "custom-ai",
+        category: "Enterprise Software",
+        title: "Bespoke Enterprise AI & Agentic Systems",
+        shortDescription:
+          "End-to-end development of custom agentic software, multi-agent workflows, and deterministic decision engines tailored to your business processes.",
+        fullDescription:
+          "We architect autonomous agent systems and bespoke LLM applications that integrate directly into your daily operational workflows. Unlike generic wrappers, our systems feature deterministic validation layers, multi-step goal planning, and real-time self-correction kernels.",
+        deliverables: [
+          "Custom multi-agent workflows with automated self-correction",
+          "Domain-specific decision engines and operational assistants",
+          "Deterministic validation kernels preventing hallucinations",
+          "Production-grade gRPC/REST APIs and microservices",
+        ],
+        technologies: ["LangGraph", "DeepSeek/Llama Kernels", "vLLM", "Rust/C++ Runtime"],
+        metric: "99.9% Task Execution Reliability",
+        tag: "Autonomous Systems",
+      },
+      {
+        id: "model-adaptation",
+        slug: "model-adaptation",
+        category: "Deep Learning",
+        title: "Proprietary Model Pre-Training & Domain Adaptation",
+        shortDescription:
+          "Continual pre-training, full-parameter fine-tuning, and alignment on your organization's confidential datasets with 100% intellectual property ownership.",
+        fullDescription:
+          "General models lack specific domain vocabulary and trade secrets. We fine-tune and continually pre-train foundation models on your internal documents, codebases, and databases. All model weights and checkpoints remain your exclusive intellectual property.",
+        deliverables: [
+          "Continual pre-training on industry-specific enterprise corpora",
+          "LoRA, QLoRA, and full-weight parameter adaptation",
+          "RLHF / DPO (Direct Preference Optimization) aligned to corporate policies",
+          "Proprietary model weights delivered with 100% IP ownership",
+        ],
+        technologies: ["PyTorch", "FlashAttention-3", "DeepSpeed ZeRO-3", "Megatron-LM"],
+        metric: "98.8% Domain Accuracy",
+        tag: "Private Weights",
+      },
+      {
+        id: "system-integration",
+        slug: "system-integration",
+        category: "Enterprise Infrastructure",
+        title: "On-Premise & Legacy Systems Integration",
+        shortDescription:
+          "Secure, zero-leakage integration with enterprise ERPs (SAP, 1C), CRMs, relational databases, and data lakes inside private cloud VPCs or air-gapped data centers.",
+        fullDescription:
+          "We bring intelligence to your existing corporate stack without disrupting production data pipelines. Our deployments operate strictly within your security boundary with zero telemetry and zero external internet egress.",
+        deliverables: [
+          "100% air-gapped deployment with zero external internet dependencies",
+          "Native integration with SAP, 1C, Oracle, PostgreSQL, and Data Lakes",
+          "Enterprise SSO, RBAC, and cryptographically signed audit logs",
+          "Automated ETL pipelines and vector search indexing for internal knowledge",
+        ],
+        technologies: ["Docker / Kubernetes", "SAP / 1C Connectors", "Qdrant / Milvus", "Air-Gapped Enclaves"],
+        metric: "Zero External Egress",
+        tag: "Air-Gapped & Secure",
+      },
+      {
+        id: "hardware-acceleration",
+        slug: "hardware-acceleration",
+        category: "Silicon & Edge",
+        title: "Custom Silicon Acceleration & Extreme Quantization",
+        shortDescription:
+          "Profiling and compiling models specifically for target silicon: Apple Silicon (Metal), NVIDIA GPUs (TensorRT-LLM), Qualcomm NPUs, or embedded ARM hardware.",
+        fullDescription:
+          "Deploying massive models on standard hardware leads to unacceptable latency and bloated server bills. We write custom hardware kernels and apply aggressive INT4/INT8/FP8 quantization so models run at blazing speeds on client devices and private clusters.",
+        deliverables: [
+          "INT4, INT8, FP8, and AWQ quantization with near-zero perplexity degradation",
+          "Custom Metal and CoreML kernels for Apple Silicon chips",
+          "TensorRT-LLM and Triton Inference Server optimization for NVIDIA clusters",
+          "Sub-50ms Time-To-First-Token (TTFT) and 3-5x lower memory footprint",
+        ],
+        technologies: ["Apple Metal/CoreML", "NVIDIA TensorRT-LLM", "Qualcomm NPU SDK", "llama.cpp / vLLM"],
+        metric: "< 50ms TTFT Latency",
+        tag: "Silicon Optimized",
+      },
+      {
+        id: "ai-governance-security",
+        slug: "ai-governance-security",
+        category: "Security & Compliance",
+        title: "Enterprise AI Security, Red-Teaming & Guardrails",
+        shortDescription:
+          "Defending AI systems against prompt injection, data extraction, adversarial poisoning, and ungrounded outputs with cryptographic audit trails.",
+        fullDescription:
+          "Enterprise deployment requires ironclad security. We conduct rigorous red-teaming audits, deploy deterministic firewall guards around model inputs/outputs, and enforce mathematical verification to eliminate vulnerabilities.",
+        deliverables: [
+          "Adversarial red-team stress testing and vulnerability reports",
+          "Deterministic input/output filtering guards (Zero-leak DLP)",
+          "Formal verification using logic solvers (Lean 4, Z3)",
+          "ISO/IEC 42001 and enterprise compliance readiness documentation",
+        ],
+        technologies: ["Lean 4", "Z3 SMT Solver", "Guardrails AI", "Cryptographic Hashing"],
+        metric: "0.00% Data Leakage",
+        tag: "Red-Teaming & Audit",
+      },
+      {
+        id: "distributed-inference",
+        slug: "distributed-inference",
+        category: "Scale & Reliability",
+        title: "High-Throughput Distributed Inference Clusters",
+        shortDescription:
+          "Engineering high-concurrency serving infrastructures capable of processing tens of thousands of requests per second with automatic load balancing.",
+        fullDescription:
+          "We design and operate resilient inference clusters with speculative decoding, dynamic batching, and multi-node GPU orchestration to maintain high throughput and minimal operating cost under extreme load.",
+        deliverables: [
+          "Autoscaling GPU/NPU worker pools with dynamic request batching",
+          "Speculative decoding and continuous batching pipelines",
+          "Real-time latency, throughput, and token-cost monitoring dashboards",
+          "24/7 dedicated engineering support and on-call SLA",
+        ],
+        technologies: ["Ray Serve", "Kubernetes", "Prometheus/Grafana", "Envoy Gateway"],
+        metric: "99.99% Cluster Uptime",
+        tag: "High Concurrency",
+      },
+    ],
+    guaranteesTitle: "Enterprise Deployment Standards",
+    guarantees: [
+      {
+        title: "100% Sovereign Weights & IP",
+        description: "All fine-tuned weights, training scripts, and custom architectures belong solely to your organization.",
+      },
+      {
+        title: "Strict Air-Gapped Operation",
+        description: "Zero telemetry, zero third-party API dependencies. Runs securely within your isolated network boundary.",
+      },
+      {
+        title: "Deterministic Guardrails",
+        description: "Outputs are mathematically and logically validated before hitting critical business systems.",
+      },
+      {
+        title: "Hardware-Tailored Efficiency",
+        description: "Squeezes maximum performance out of existing hardware, drastically lowering capital and electricity costs.",
+      },
+    ],
+    roadmapTitle: "Technical Engagement Roadmap",
+    roadmapSubtitle: "From architectural audit to production deployment in weeks, not quarters.",
+    roadmapSteps: [
+      {
+        phase: "Phase 01",
+        title: "Architecture & Feasibility Audit",
+        duration: "Week 1",
+        description: "We analyze your infrastructure, data security requirements, hardware constraints, and business KPIs.",
+      },
+      {
+        phase: "Phase 02",
+        title: "Prototype & Fine-Tuning Benchmark",
+        duration: "Weeks 2-3",
+        description: "Custom model adaptation on a sealed test dataset with quantitative accuracy and latency benchmarks.",
+      },
+      {
+        phase: "Phase 03",
+        title: "On-Premise Deployment & Hardening",
+        duration: "Weeks 4-5",
+        description: "Integration into internal ERP/CRM systems, air-gapped security lockdown, and load testing.",
+      },
+      {
+        phase: "Phase 04",
+        title: "Production Handover & 24/7 SLA",
+        duration: "Ongoing",
+        description: "Full code and weight handover, internal engineering training, and mission-critical operational support.",
+      },
+    ],
+    contactCta: {
+      headline: "Ready to deploy sovereign AI across your enterprise?",
+      detail: "Schedule a confidential technical discovery call with our principal AI engineers.",
+      button: "Request Technical Architecture Audit",
+    },
   },
   solutions: {
     eyebrow: "Capabilities",
@@ -281,6 +461,7 @@ export const en = {
     description:
       "An independent AI research lab building on-device models and autonomous agents.",
     productsTitle: "Products",
+    servicesTitle: "Services",
     companyTitle: "Company",
     contact: "Contact",
     research: "Research",
@@ -291,6 +472,7 @@ export const en = {
   productCommon: {
     breadcrumbHome: "Home",
     breadcrumbProducts: "Products",
+    breadcrumbServices: "Services",
     backToHome: "Back to Home",
     keySpecifications: "System Specifications",
     coreCapabilities: "Core Architecture & Capabilities",

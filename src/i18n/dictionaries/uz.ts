@@ -10,6 +10,7 @@ export const uz: Dictionary = {
   },
   nav: {
     products: "Mahsulotlar",
+    services: "Xizmatlar",
     solutions: "Yechimlar",
     process: "Jarayon",
     impact: "Natijalar",
@@ -24,17 +25,18 @@ export const uz: Dictionary = {
     titleLine2: "o'sish infratuzilmasiga aylantiring.",
     description:
       "Startaplar va yirik kompaniyalarga sun'iy intellektni marketing, operatsiyalar va mahsulotga murakkabliksiz joriy qilishda yordam beramiz.",
-    primary: "AI loyihani boshlash",
-    secondary: "Mahsulotlar bilan tanishish",
+    primary: "Xizmatlar bilan tanishish",
+    secondary: "Mahsulotlar katalogi",
     imageAlt: "Yorqin ramkali, ko'tarilib boruvchi monolitlar",
   },
   products: {
-    eyebrow: "Mahsulotlar",
-    titleLine1: "Uchta agent.",
-    titleLine2: "Bitta tadqiqot laboratoriyasi.",
+    eyebrow: "Mustaqil Mahsulotlar",
+    titleLine1: "Uchta maxsus agent.",
+    titleLine2: "Bitta suveren tadqiqot laboratoriyasi.",
     description:
-      "O'zimiz yaratib, o'zimiz chiqaradigan modellar: telefondagi lokal yordamchi hamda dasturlash va ilm-fan uchun avtonom agentlar.",
+      "Noldan ishlab chiqilgan avtonom tizimlar: smartfonlar uchun qurilmadagi lokal neyron yadrosi hamda dasturlash va ilmiy tadqiqotlar uchun avtonom agentlar.",
     learnMore: "Loyiha sahifasiga o'tish",
+    viewAll: "Barcha mahsulotlarni ko'rish",
     items: [
       {
         id: "mobile-agent",
@@ -82,6 +84,184 @@ export const uz: Dictionary = {
         cta: "Syntheta Research sahifasi",
       },
     ],
+  },
+  services: {
+    eyebrow: "Muhandislik Xizmatlari",
+    titleLine1: "Maxsus AI Muhandisligi.",
+    titleLine2: "Infratuzilmangizga Moslashtirilgan.",
+    description:
+      "Noyob neyron tarmoqlarini noldan qurish, modellarni korporativ maxfiy ma'lumotlarda o'qitish, tashqi dunyodan uzilgan (air-gapped) ichki tizimlarga ulash va maxsus chiplar uchun chuqur optimallashtirish.",
+    viewAll: "Barcha Xizmatlarni Ko'rish",
+    requestAudit: "Texnik Auditga Buyurtma Berish",
+    learnMore: "Texnik tafsilotlar",
+    items: [
+      {
+        id: "custom-ai",
+        slug: "custom-ai",
+        category: "Korporativ Dasturiy Ta'minot",
+        title: "Maxsus Enterprise AI va Avtonom Tizimlar Qurish",
+        shortDescription:
+          "Biznes jarayonlaringizga to'liq moslashtirilgan ko'p agentli avtonom dasturiy ta'minot, qaror qabul qiluvchi aqlli mexanizmlar va deterministik tahlil tizimlarini noldan yaratish.",
+        fullDescription:
+          "Biz biznesingizning kundalik operatsion ish oqimlariga bevosita integratsiyalashadigan avtonom agent tizimlari va xususiy LLM arxitekturalarini loyihalashtiramiz. Oddiy yuzaki API ulanishlaridan farqli o'laroq, bizning yechimlarimiz deterministik tekshiruv qatlami, ko'p bosqichli maqsadli rejalashtirish va xatolarni o'zi to'g'rilaydigan ichki mexanizmlar bilan jihozlangan.",
+        deliverables: [
+          "O'z-o'zini avtomatik to'g'rilaydigan ko'p agentli ish oqimlari",
+          "Sohaviy qaror qabul qilish mexanizmlari va operatsion yordamchilar",
+          "Gallyutsinatsiyalarni bartaraf etuvchi deterministik tekshiruv qatlami",
+          "Korporativ miqyosga mo'ljallangan yuqori tezlikdagi gRPC/REST API'lar",
+        ],
+        technologies: ["LangGraph", "DeepSeek/Llama Kernels", "vLLM", "Rust/C++ Runtime"],
+        metric: "99.9% Vazifalarni Ishonchli Bajarish",
+        tag: "Avtonom Tizimlar",
+      },
+      {
+        id: "model-adaptation",
+        slug: "model-adaptation",
+        category: "Deep Learning",
+        title: "Modellarni Maxsus O'qitish va Sohaviy Moslashtirish",
+        shortDescription:
+          "Kompaniyangizning maxfiy korpuslari asosida modellarni doimiy qo'shimcha o'qitish (Continual Pre-training), parametrlarni nozik sozlash va intellektual mulkni 100% sizda qoldirish.",
+        fullDescription:
+          "Umumiy modellar kompaniyangizning ichki sohaviy terminologiyasi, tijorat sirlari va o'ziga xos talablarini bilmaydi. Biz ochiq va yopiq arxitekturali bazaviy modellarni sizning hujjatlaringiz, kod bazangiz va ichki ma'lumotlaringiz bo'yicha qo'shimcha o'qitamiz. Barcha model og'irliklari (weights) va intellektual mulk to'liq kompaniyangiz tasarrufida qoladi.",
+        deliverables: [
+          "Sohaga oid korporativ arxivlar bo'yicha doimiy o'qitish (Pre-training)",
+          "LoRA, QLoRA va to'liq parametrli (Full-parameter) nozik moslashtirish",
+          "Kompaniya ichki qoidalariga moslashtirilgan RLHF va DPO optimizatsiyasi",
+          "100% mulk huquqi bilan topshiriladigan xususiy model vaznlari",
+        ],
+        technologies: ["PyTorch", "FlashAttention-3", "DeepSpeed ZeRO-3", "Megatron-LM"],
+        metric: "98.8% Sohaviy Aniqlik",
+        tag: "Xususiy Vaznlar",
+      },
+      {
+        id: "system-integration",
+        slug: "system-integration",
+        category: "Korporativ Infratuzilma",
+        title: "Kompaniya Ichki Tizimiga Moslashtirish va Integratsiya",
+        shortDescription:
+          "Tashqi internetdan to'liq uzilgan (Air-gapped) yoki xususiy bulutda (Private VPC) korporativ ERP (SAP, 1C), CRM, ma'lumotlar ombori va ichki tizimlarga xavfsiz ulash.",
+        fullDescription:
+          "Biz ishlab chiqarish jarayonlariga ziyon yetkazmagan holda mavjud korporativ tizimlaringizga sun'iy intellektni xavfsiz integratsiya qilamiz. Tizim to'liq sizning xavfsizlik perimetringiz ichida ishlaydi, hech qanday telemetriya yoki tashqi tarmoqqa ma'lumot uzatish bo'lmaydi.",
+        deliverables: [
+          "Tashqi internetga hech qanday bog'liqliksiz 100% lokal (Air-gapped) o'rnatish",
+          "SAP, 1C, Oracle, PostgreSQL va Data Lake tizimlari bilan uzviy integratsiya",
+          "SSO, Active Directory / LDAP, RBAC va kriptografik audit jurnallari",
+          "Ichki bilimlar bazasi uchun avtomatlashtirilgan ETL va vektorli qidiruv indekslari",
+        ],
+        technologies: ["Docker / Kubernetes", "SAP / 1C Ulagichlari", "Qdrant / Milvus", "Izolyatsiyalangan Enklavlar"],
+        metric: "0 bayt Tashqi Sizish",
+        tag: "Air-Gapped Xavfsizlik",
+      },
+      {
+        id: "hardware-acceleration",
+        slug: "hardware-acceleration",
+        category: "Uskuna va Chiplar",
+        title: "Maxsus Hardware Uchun Moslashtirish va Kvantlash",
+        shortDescription:
+          "Modellarni maxsus uskunalar: Apple Silicon (Metal), NVIDIA GPU'lar (TensorRT-LLM), Qualcomm NPU yoki ixcham ARM mikrosxemalar uchun 4-bit/8-bit kvantlash va tezlashtirish.",
+        fullDescription:
+          "Katta modellarni odatiy serverlarda ishlatish yuqori kechikish va katta elektr/server xarajatlariga olib keladi. Biz maxsus apparat yadrolarini yozamiz va sifatni yo'qotmagan holda chuqur INT4/INT8/FP8 kvantlashni amalga oshiramiz, bu esa modellarni cheklangan chiplarda ham chaqmoqdek tez ishlashini ta'minlaydi.",
+        deliverables: [
+          "Sifatni yo'qotmagan holda INT4, INT8, FP8 va AWQ kvantlash",
+          "Apple Silicon chiplari uchun maxsus Metal va CoreML yadrolari",
+          "NVIDIA klasterlari uchun TensorRT-LLM va Triton Inference Server optimizatsiyasi",
+          "50 millisekunddan kam kechikish (TTFT) va operativ xotirani 3-5 baravargacha tejash",
+        ],
+        technologies: ["Apple Metal/CoreML", "NVIDIA TensorRT-LLM", "Qualcomm NPU SDK", "llama.cpp / vLLM"],
+        metric: "< 50ms Birinchi Token (TTFT)",
+        tag: "Chip Optimizatsiyasi",
+      },
+      {
+        id: "ai-governance-security",
+        slug: "ai-governance-security",
+        category: "Xavfsizlik va Muvofiqlik",
+        title: "Korporativ AI Xavfsizligi, Red-Teaming va Himoya Qatlamlari",
+        shortDescription:
+          "Sun'iy intellekt tizimlarini prompt injection, ma'lumotlar sizishi, adversarial buzishlar va noto'g'ri xatti-harakatlardan himoyalash hamda audit o'tkazish.",
+        fullDescription:
+          "Korporativ joriy etish mustahkam xavfsizlikni talab qiladi. Biz tizimga xakerlik hujumlari (red-teaming) o'tkazamiz, kiruvchi va chiquvchi oqimlarga deterministik xavfsizlik devorlarini qo'yamiz va gallyutsinatsiyalarni matematik tekshirish orqali bartaraf qilamiz.",
+        deliverables: [
+          "Adversarial red-team stress testlari va zaiflik hisobotlari",
+          "Kiruvchi va chiquvchi ma'lumotlarni deterministik filtrlash (Zero-leak DLP)",
+          "Formal tekshiruv va mantiqiy tekshiruvchilar (Lean 4, Z3)",
+          "ISO/IEC 42001 xalqaro standartlariga muvofiqlik hujjatlari",
+        ],
+        technologies: ["Lean 4", "Z3 SMT Solver", "Guardrails AI", "Kriptografik Xeshlash"],
+        metric: "0.00% Ma'lumot Sizishi",
+        tag: "Red-Teaming va Audit",
+      },
+      {
+        id: "distributed-inference",
+        slug: "distributed-inference",
+        category: "Masshtab va Barqarorlik",
+        title: "Yuqori Yuklamali Taqsimlangan Klaster Infratuzilmasi",
+        shortDescription:
+          "Soniyasiga o'n minglab so'rovlarni minimal xarajat bilan qayta ishlovchi, avtomatik muvozanatlashuvchi va uzluksiz ishlovchi server klasterlarini loyihalash.",
+        fullDescription:
+          "Biz spekulyativ dekodlash, dinamik so'rovlarni guruhlash va ko'p tugunli GPU klasterlarini boshqarish orqali eng yuqori yuklamalarda ham past kechikish va 99.99% barqarorlikni ta'minlaydigan infratuzilmalarni barpo etamiz.",
+        deliverables: [
+          "So'rovlarni dinamik guruhlovchi avtoskalirlanuvchi GPU/NPU hovuzlari",
+          "Spekulyativ dekodlash va uzluksiz so'rovlar oqimi konveyeri",
+          "Haqiqiy vaqt rejimida kechikish, o'tkazuvchanlik va xarajat monitoring panellari",
+          "24/7 navbatchi muhandislik ko'magi va qat'iy SLA kafolati",
+        ],
+        technologies: ["Ray Serve", "Kubernetes", "Prometheus/Grafana", "Envoy Gateway"],
+        metric: "99.99% Klaster Barqarorligi",
+        tag: "Yuqori Yuklama",
+      },
+    ],
+    guaranteesTitle: "Korporativ Standartlar va Kafolatlar",
+    guarantees: [
+      {
+        title: "100% Suveren Model Vaznlari va IP",
+        description: "Barcha o'qitilgan model og'irliklari, o'qitish skriptlari va arxitektura to'liq sizning tashkilotingizga tegishli bo'ladi.",
+      },
+      {
+        title: "Qat'iy Air-Gapped Xavfsizlik",
+        description: "Nol telemetriya, tashqi API'larga umuman bog'lanmaslik. Faqat sizning izolyatsiyalangan tarmog'ingizda ishlaydi.",
+      },
+      {
+        title: "Deterministik Himoya Qatlami",
+        description: "Barcha javoblar muhim biznes tizimlariga yetib borishdan oldin qat'iy mantiqiy qoidalar asosida tekshiriladi.",
+      },
+      {
+        title: "Apparat Imkoniyatlarini Maksimal Ishlatish",
+        description: "Mavjud server va chiplardan eng yuqori unumdorlikni siqib chiqarib, server xarajatlarini bir necha barobar tejaydi.",
+      },
+    ],
+    roadmapTitle: "Texnik Hamkorlik Bosqichlari",
+    roadmapSubtitle: "Arxitektura auditidan boshlab ishlab chiqarishga to'liq topshirishgacha bo'lgan aniq yo'l xaritasi.",
+    roadmapSteps: [
+      {
+        phase: "01-Bosqich",
+        title: "Arxitektura va Imkoniyatlar Auditi",
+        duration: "1-Hafta",
+        description: "Infratuzilmangiz, ma'lumotlar xavfsizligi talablari, apparat resurslari va asosiy biznes ko'rsatkichlarini chuqur tahlil qilamiz.",
+      },
+      {
+        phase: "02-Bosqich",
+        title: "Prototip va O'qitish Benchmarki",
+        duration: "2-3 Haftalar",
+        description: "Yopiq sinov ma'lumotlarida modelni moslashtirib, aniqlik va tezlik bo'yicha aniq raqamli natijalarni ko'rsatamiz.",
+      },
+      {
+        phase: "03-Bosqich",
+        title: "Ichki Tizimga O'rnatish va Himoyalash",
+        duration: "4-5 Haftalar",
+        description: "ERP/CRM tizimlari bilan integratsiya, tashqi tarmoqdan to'liq uzish, xavfsizlik sinovlari va yuklama testlari.",
+      },
+      {
+        phase: "04-Bosqich",
+        title: "Ishlab Chiqarishga Topshirish va 24/7 SLA",
+        duration: "Doimiy",
+        description: "To'liq kod va model og'irliklarini topshirish, ichki muhandislarni o'qitish va kafolatli 24/7 operatsion qo'llab-quvvatlash.",
+      },
+    ],
+    contactCta: {
+      headline: "Kompaniyangizda suveren AI tizimlarini joriy qilishga tayyormisiz?",
+      detail: "Bosh AI muhandislarimiz bilan maxfiy texnik arxitektura muhokamasini belgilang.",
+      button: "Texnik Arxitektura Auditini So'rash",
+    },
   },
   solutions: {
     eyebrow: "Imkoniyatlar",
@@ -279,6 +459,7 @@ export const uz: Dictionary = {
     description:
       "Qurilmada ishlaydigan modellar va avtonom agentlar yaratadigan mustaqil AI tadqiqot laboratoriyasi.",
     productsTitle: "Mahsulotlar",
+    servicesTitle: "Xizmatlar",
     companyTitle: "Kompaniya",
     contact: "Aloqa",
     research: "Tadqiqot",
@@ -289,6 +470,7 @@ export const uz: Dictionary = {
   productCommon: {
     breadcrumbHome: "Bosh sahifa",
     breadcrumbProducts: "Mahsulotlar",
+    breadcrumbServices: "Xizmatlar",
     backToHome: "Bosh sahifaga qaytish",
     keySpecifications: "Tizim spetsifikatsiyalari",
     coreCapabilities: "Asosiy arxitektura va imkoniyatlar",
