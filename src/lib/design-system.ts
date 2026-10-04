@@ -14,8 +14,8 @@ export const siteConfig = {
   },
   links: {
     nav: [
+      { label: "Products", href: "#products" },
       { label: "Solutions", href: "#solutions" },
-      { label: "Capabilities", href: "#capabilities" },
       { label: "Process", href: "#process" },
       { label: "Impact", href: "#impact" },
       { label: "Contact", href: "#contact" },
@@ -25,23 +25,61 @@ export const siteConfig = {
       href: "#contact",
     },
     secondaryAction: {
-      label: "View Case Studies",
-      href: "#cases",
+      label: "Explore Products",
+      href: "#products",
     },
     ctaAction: {
       label: "Contact Lab",
       href: "#contact",
     },
   },
-  partners: [
-    { name: "attentive®", special: true },
-    { name: "coinbase" },
-    { name: "upwork" },
-    { name: "DocuSign" },
-    { name: "drips" },
-    { name: "NETFLIX", uppercase: true },
-    { name: "braze", italic: true },
-    { name: "zapier" },
+  // Working product names — rename here and every section updates.
+  products: [
+    {
+      id: "mobile-agent",
+      index: "01",
+      category: "On-device agent",
+      name: "Syntheta Mobile",
+      summary:
+        "A compact local model that runs entirely on the phone, understands Uzbek, and operates apps on the user's behalf.",
+      capabilities: [
+        "Runs fully offline, no data leaves the device",
+        "Native Uzbek understanding, spoken and written",
+        "Controls apps and system settings from plain requests",
+      ],
+      status: "In development",
+      cta: { label: "Request early access", href: "#contact" },
+    },
+    {
+      id: "coder",
+      index: "02",
+      category: "Coding agent",
+      name: "Syntheta Code",
+      summary:
+        "An autonomous software engineer for the terminal and IDE. It reads a repository, plans changes, edits files and runs tests.",
+      capabilities: [
+        "Repository-wide context and multi-file edits",
+        "Executes commands and iterates until tests pass",
+        "Reviewable diffs, you approve every change",
+      ],
+      status: "In development",
+      cta: { label: "Request early access", href: "#contact" },
+    },
+    {
+      id: "researcher",
+      index: "03",
+      category: "Research agent",
+      name: "Syntheta Research",
+      summary:
+        "A deep-research agent for scientific work. It surveys literature, runs analyses and returns findings with cited sources.",
+      capabilities: [
+        "Literature review across papers and datasets",
+        "Reproducible analysis, code and data included",
+        "Every claim linked to a verifiable source",
+      ],
+      status: "In development",
+      cta: { label: "Request early access", href: "#contact" },
+    },
   ],
 };
 

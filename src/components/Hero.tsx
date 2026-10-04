@@ -116,25 +116,22 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom Partner / Client Logos Bar */}
+      {/* Bottom product strip */}
       <div className="relative z-10 w-full border-t border-white/[0.08] pt-9 mt-14 bg-gradient-to-b from-transparent to-black/80">
         <div className={theme.layout.container}>
-          <div className="flex flex-wrap items-center justify-between gap-8 sm:gap-12 opacity-45 grayscale hover:opacity-75 transition-opacity duration-300">
-            {siteConfig.partners.map((partner) => (
-              <span 
-                key={partner.name}
-                className={`text-base sm:text-lg text-white ${
-                  partner.special 
-                    ? "font-sans font-bold tracking-tight lowercase" 
-                    : partner.uppercase 
-                    ? "font-sans font-extrabold tracking-widest uppercase"
-                    : partner.italic
-                    ? "font-serif italic font-semibold tracking-normal lowercase"
-                    : "font-sans font-semibold tracking-wider lowercase"
-                }`}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10">
+            {siteConfig.products.map((product) => (
+              <Link
+                key={product.id}
+                href="#products"
+                className="group flex items-baseline gap-4 text-neutral-500 hover:text-white transition-colors duration-200"
               >
-                {partner.name}
-              </span>
+                <span className="font-mono text-xs">{product.index}</span>
+                <span className="text-sm sm:text-base font-medium text-neutral-300 group-hover:text-white">
+                  {product.name}
+                </span>
+                <span className="text-xs hidden lg:inline">{product.category}</span>
+              </Link>
             ))}
           </div>
         </div>

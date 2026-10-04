@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { Products } from "@/components/Products";
 import { Solutions } from "@/components/Solutions";
 import { Metrics } from "@/components/Metrics";
 import { Workflow } from "@/components/Workflow";
@@ -16,6 +17,9 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         {/* 1. 3D Monolith Parallax Hero Showcase */}
         <Hero />
+
+        {/* 2. Our products */}
+        <Products />
 
         {/* 2. Core Capabilities Bento Grid */}
         <Solutions />
