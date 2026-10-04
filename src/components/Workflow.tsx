@@ -2,47 +2,15 @@
 
 import React from "react";
 import { theme } from "@/lib/design-system";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function Workflow() {
-  const steps = [
-    {
-      num: "01",
-      phase: "PHASE ONE // EVALUATION",
-      title: "Architecture & Domain Audit",
-      description:
-        "We dissect your existing data topologies, throughput constraints, and accuracy requirements to architect the optimal cognitive model blueprint.",
-      bullets: [
-        "Proprietary schema analysis",
-        "Reasoning latency profiling",
-        "Security & compliance boundaries",
-      ],
-    },
-    {
-      num: "02",
-      phase: "PHASE TWO // SYNTHESIS",
-      title: "Custom Distillation & Formal Alignment",
-      description:
-        "Training specialist foundation weights using reinforcement learning grounded in formal mathematical verification, eliminating hallucination risks.",
-      bullets: [
-        "Domain-specific dataset synthesis",
-        "Deterministic guardrail calibration",
-        "Formal Z3 / Lean 4 verification checks",
-      ],
-    },
-    {
-      num: "03",
-      phase: "PHASE THREE // ROLLOUT",
-      title: "Sovereign Cluster Deployment",
-      description:
-        "Seamless production release on dedicated air-gapped hardware or private cloud superclusters with real-time telemetry and monitoring.",
-      bullets: [
-        "Air-gapped on-premise integration",
-        "Zero-telemetry data isolation",
-        "Sub-20ms distributed inference",
-      ],
-    },
-  ];
+interface WorkflowProps {
+  dict: Dictionary["workflow"];
+  lang: Locale;
+}
 
+export function Workflow({ dict }: WorkflowProps) {
   return (
     <section id="process" className={`${theme.layout.section} ${theme.layout.sectionBorder} bg-black`}>
       <div className={theme.layout.container}>
@@ -51,20 +19,20 @@ export function Workflow() {
         <div className="max-w-2xl mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
             <span className="h-1.5 w-1.5 rounded-full bg-neutral-400" />
-            <span>Deployment Protocol</span>
+            <span>{dict.eyebrow}</span>
           </div>
           <h2 className={theme.typography.h2}>
-            From architecture audit to <br />
-            <span className={theme.typography.gradientText}>sovereign production.</span>
+            {dict.titleLine1} <br />
+            <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
           </h2>
           <p className={theme.typography.bodyLarge}>
-            A rigorous, engineering-first engagement model designed for enterprise reliability and zero operational chaos.
+            {dict.description}
           </p>
         </div>
 
         {/* 3 Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step, idx) => (
+          {dict.steps.map((step, idx) => (
             <div 
               key={idx}
               className={`${theme.components.card} flex flex-col justify-between`}
@@ -72,7 +40,7 @@ export function Workflow() {
               <div>
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
                   <span className="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tighter">
-                    {step.num}
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
                   <span className="font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
                     {step.phase}

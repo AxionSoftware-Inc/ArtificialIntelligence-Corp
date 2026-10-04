@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { siteConfig, theme } from "@/lib/design-system";
+import { theme } from "@/lib/design-system";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function Products() {
+interface ProductsProps {
+  dict: Dictionary["products"];
+  lang: Locale;
+}
+
+export function Products({ dict }: ProductsProps) {
   return (
     <section
       id="products"
@@ -13,21 +20,20 @@ export function Products() {
         <div className="max-w-2xl mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
             <span className="h-1.5 w-1.5 rounded-full bg-neutral-400" />
-            <span>Products</span>
+            <span>{dict.eyebrow}</span>
           </div>
           <h2 className={theme.typography.h2}>
-            Three agents. <br />
-            <span className={theme.typography.gradientText}>One research lab.</span>
+            {dict.titleLine1} <br />
+            <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
           </h2>
           <p className={theme.typography.bodyLarge}>
-            Models we build and ship ourselves, from a local assistant on your
-            phone to autonomous agents for engineering and science.
+            {dict.description}
           </p>
         </div>
 
         {/* Product Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {siteConfig.products.map((product) => (
+          {dict.items.map((product, idx) => (
             <article
               key={product.id}
               className={`${theme.components.card} flex flex-col justify-between`}
@@ -35,7 +41,7 @@ export function Products() {
               <div>
                 <div className="flex items-center justify-between mb-10 pb-4 border-b border-white/[0.08]">
                   <span className="font-mono text-xs text-neutral-500">
-                    {product.index} / {product.category}
+                    {String(idx + 1).padStart(2, "0")} / {product.category}
                   </span>
                   <span className="font-mono text-[11px] text-neutral-400 border border-white/[0.08] px-2.5 py-1 rounded-full bg-white/[0.02]">
                     {product.status}
@@ -61,8 +67,8 @@ export function Products() {
               </div>
 
               <div className="mt-10 pt-6 border-t border-white/[0.06]">
-                <Link href={product.cta.href} className={theme.components.buttonSecondary}>
-                  <span>{product.cta.label}</span>
+                <Link href="#contact" className={theme.components.buttonSecondary}>
+                  <span>{product.cta}</span>
                   <ArrowUpRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white transition-colors" />
                 </Link>
               </div>

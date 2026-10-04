@@ -4,8 +4,15 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { theme } from "@/lib/design-system";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function CTA() {
+interface CTAProps {
+  dict: Dictionary["cta"];
+  lang: Locale;
+}
+
+export function CTA({ dict }: CTAProps) {
   return (
     <section id="contact" className={`${theme.layout.section} ${theme.layout.sectionBorder} bg-black`}>
       <div className={theme.layout.container}>
@@ -18,35 +25,34 @@ export function CTA() {
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Dedicated Research & Deployment Cohort</span>
+              <span>{dict.eyebrow}</span>
             </div>
 
             {/* Master Headline */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08]">
-              Ready to turn intelligence into <br />
-              <span className={theme.typography.gradientText}>sovereign infrastructure?</span>
+              {dict.titleLine1} <br />
+              <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
             </h2>
 
             {/* Subtitle */}
             <p className={`${theme.typography.bodyLarge} max-w-xl mx-auto`}>
-              Connect directly with our foundation systems engineers to assess your 
-              enterprise workflows, private model distillation, and compute provisioning.
+              {dict.description}
             </p>
 
             {/* Action Buttons */}
             <div className="pt-4 flex flex-wrap items-center justify-center gap-5">
               <Link
-                href="#schedule"
+                href="#contact"
                 className={theme.components.buttonPrimary}
               >
-                <span>Schedule Technical Consultation</span>
+                <span>{dict.primary}</span>
               </Link>
 
               <Link
-                href="#docs"
+                href="#products"
                 className="group inline-flex items-center text-sm font-medium text-neutral-400 hover:text-white transition-colors duration-200"
               >
-                <span>Read Architecture Whitepaper</span>
+                <span>{dict.secondary}</span>
                 <ArrowUpRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
               </Link>
             </div>

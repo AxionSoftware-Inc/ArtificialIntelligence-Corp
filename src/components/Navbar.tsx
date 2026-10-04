@@ -2,10 +2,17 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Globe } from "lucide-react";
 import { siteConfig, theme } from "@/lib/design-system";
+import { locales, localeLabels, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function Navbar() {
+interface NavbarProps {
+  dict: Dictionary["nav"];
+  lang: Locale;
+}
+
+export function Navbar({ dict, lang }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -17,17 +24,25 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: dict.products, href: "#products" },
+    { label: dict.solutions, href: "#solutions" },
+    { label: dict.process, href: "#process" },
+    { label: dict.impact, href: "#impact" },
+    { label: dict.contact, href: "#contact" },
+  ];
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        scrolled 
-          ? "bg-black/80 backdrop-blur-2xl border-b border-white/[0.08] py-4" 
-          : "bg-transparent py-6"
+        scrolled
+          ? "bg-black/85 backdrop-blur-2xl border-b border-white/[0.08] py-3.5 shadow-2xl shadow-black/60"
+          : "bg-transparent py-5 sm:py-6"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
+        <Link href={`/${lang}`} className="flex items-center gap-2.5 group">
           <span className="text-base sm:text-lg font-bold tracking-[0.14em] text-white uppercase font-sans">
             {siteConfig.brand.name}
           </span>
@@ -37,8 +52,8 @@ export function Navbar() {
         </Link>
 
         {/* Center Navigation Links */}
-        <nav className="hidden md:flex items-center gap-9 text-[13px] tracking-wide font-normal text-neutral-400">
-          {siteConfig.links.nav.map((link) => (
+        <nav className="hidden lg:flex items-center gap-8 text-[13px] tracking-wide font-normal text-neutral-400">
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
@@ -49,23 +64,63 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right Section: Language Switcher + CTA Button */}
+        <div className="hidden sm:flex items-center gap-4">
+          {/* Language Switcher */}
+          <div className="flex items-center gap-0.5 p-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
+            <Globe className="h-3.5 w-3.5 ml-1.5 mr-0.5 text-neutral-400" />
+            {locales.map((l) => {
+              const isActive = l === lang;
+              return (
+                <Link
+                  key={l}
+                  href={`/${l}`}
+                  className={`px-2.5 py-1 text-[11px] font-mono tracking-wider rounded-full transition-all duration-200 ${
+                    isActive
+                      ? "bg-white text-black font-semibold shadow-sm"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                  aria-label={`Switch to ${localeLabels[l]}`}
+                >
+                  {localeLabels[l]}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* CTA Button */}
           <Link
-            href={siteConfig.links.ctaAction.href}
+            href="#contact"
             className={theme.components.buttonOutline}
           >
-            <span>{siteConfig.links.ctaAction.label}</span>
+            <span>{dict.cta}</span>
             <ArrowUpRight className="h-3 w-3 text-neutral-400 group-hover:text-white transition-colors" />
           </Link>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex md:hidden">
+        {/* Mobile menu button & quick lang toggle */}
+        <div className="flex items-center gap-3 sm:hidden">
+          {/* Language Switcher on mobile header */}
+          <div className="flex items-center p-0.5 rounded-full border border-white/10 bg-white/[0.03]">
+            {locales.map((l) => (
+              <Link
+                key={l}
+                href={`/${l}`}
+                className={`px-2 py-0.5 text-[10px] font-mono rounded-full ${
+                  l === lang
+                    ? "bg-white text-black font-bold"
+                    : "text-neutral-400"
+                }`}
+              >
+                {localeLabels[l]}
+              </Link>
+            ))}
+          </div>
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-neutral-400 hover:text-white p-1.5"
-            aria-label="Toggle Menu"
+            aria-label={dict.menu}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -74,21 +129,27 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden border-b border-white/10 bg-black/95 backdrop-blur-2xl px-6 py-6 space-y-4">
-          <div className="flex flex-col space-y-3.5 text-sm text-neutral-300">
-            {siteConfig.links.nav.map((link) => (
-              <Link key={link.label} href={link.href} onClick={() => setIsOpen(false)}>
+        <div className="sm:hidden border-b border-white/10 bg-black/95 backdrop-blur-2xl px-6 py-6 space-y-5 animate-in fade-in slide-in-from-top-3 duration-200">
+          <div className="flex flex-col space-y-4 text-sm text-neutral-300">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="hover:text-white transition-colors py-1"
+              >
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="pt-4 border-t border-white/10">
+
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
             <Link
-              href={siteConfig.links.ctaAction.href}
+              href="#contact"
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center w-full rounded-full border border-white/30 bg-white/[0.05] py-2.5 text-xs font-medium text-white"
+              className="inline-flex items-center justify-center w-full rounded-full border border-white/30 bg-white/[0.05] py-2.5 text-xs font-medium text-white hover:bg-white hover:text-black transition-all"
             >
-              {siteConfig.links.ctaAction.label}
+              {dict.cta}
             </Link>
           </div>
         </div>

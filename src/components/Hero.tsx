@@ -4,9 +4,16 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { siteConfig, theme } from "@/lib/design-system";
+import { theme } from "@/lib/design-system";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function Hero() {
+interface HeroProps {
+  dict: Dictionary["hero"];
+  lang: Locale;
+}
+
+export function Hero({ dict }: HeroProps) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement | null>(null);
 
@@ -48,7 +55,7 @@ export function Hero() {
         >
           <Image
             src="/images/hero-3d.jpg"
-            alt="Ascending Monoliths with Glowing Halos"
+            alt={dict.imageAlt}
             fill
             priority
             className="object-cover object-center lg:object-right opacity-95 transition-opacity duration-1000"
@@ -78,65 +85,58 @@ export function Hero() {
               <span className={theme.components.badgeJewel} />
             </span>
             <span className="tracking-wide">
-              {siteConfig.brand.badgeText}
+              {dict.badge}
             </span>
           </div>
 
           {/* Master Headline (Optical Kerning + Silver Sheen) */}
           <h1 className={theme.typography.h1}>
-            Turn Intelligence <br className="hidden sm:inline" />
+            {dict.titleLine1} <br className="hidden sm:inline" />
             <span className={theme.typography.gradientText}>
-              Into Growth Infrastructure.
+              {dict.titleLine2}
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className={`${theme.typography.bodyLarge} max-w-xl`}>
-            {siteConfig.brand.description}
+            {dict.description}
           </p>
 
           {/* Action Buttons */}
           <div className="pt-3 flex flex-wrap items-center gap-6">
             <Link
-              href={siteConfig.links.primaryAction.href}
+              href="#contact"
               className={theme.components.buttonPrimary}
             >
-              <span>{siteConfig.links.primaryAction.label}</span>
+              <span>{dict.primary}</span>
+              <ChevronRight className="h-4 w-4 ml-0.5 text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-all duration-200" />
             </Link>
 
             <Link
-              href={siteConfig.links.secondaryAction.href}
+              href="#products"
               className={theme.components.buttonSecondary}
             >
-              <span>{siteConfig.links.secondaryAction.label}</span>
-              <ChevronRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              <span>{dict.secondary}</span>
             </Link>
           </div>
 
         </div>
       </div>
 
-      {/* Bottom product strip */}
-      <div className="relative z-10 w-full border-t border-white/[0.08] pt-9 mt-14 bg-gradient-to-b from-transparent to-black/80">
-        <div className={theme.layout.container}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10">
-            {siteConfig.products.map((product) => (
-              <Link
-                key={product.id}
-                href="#products"
-                className="group flex items-baseline gap-4 text-neutral-500 hover:text-white transition-colors duration-200"
-              >
-                <span className="font-mono text-xs">{product.index}</span>
-                <span className="text-sm sm:text-base font-medium text-neutral-300 group-hover:text-white">
-                  {product.name}
-                </span>
-                <span className="text-xs hidden lg:inline">{product.category}</span>
-              </Link>
-            ))}
+      {/* Subtle Ambient Footer Telemetry Line inside Hero */}
+      <div className={`relative z-10 ${theme.layout.container} w-full`}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-white/[0.08] pt-6 gap-4 font-mono text-[11px] text-neutral-500 tracking-wider">
+          <div className="flex items-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+            <span className="uppercase text-neutral-400">RESEARCH COHORT 2026 // ON-DEVICE & AGENTS</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-6">
+            <span>MODEL: SYNTHETA-1</span>
+            <span>VERIFIED: LEAN 4 / Z3</span>
+            <span>AIR-GAPPED COMPLIANT</span>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

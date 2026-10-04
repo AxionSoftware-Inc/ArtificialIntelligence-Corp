@@ -2,26 +2,15 @@
 
 import React from "react";
 import { theme } from "@/lib/design-system";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export function Metrics() {
-  const metrics = [
-    {
-      value: "99.4%",
-      label: "Invariant Verification Rate",
-      description: "Autonomous reasoning tasks formally validated via Lean 4 & Z3 SMT solvers with zero ungrounded axioms.",
-    },
-    {
-      value: "4.2×",
-      label: "Compute Efficiency Gain",
-      description: "Distilled MoE architectures outperform generalist frontier APIs in domain accuracy while reducing inference cost.",
-    },
-    {
-      value: "<18ms",
-      label: "Time-To-First-Token",
-      description: "Low-latency deterministic execution enabled by dedicated private GPU clusters and FP8 Flash kernels.",
-    },
-  ];
+interface MetricsProps {
+  dict: Dictionary["metrics"];
+  lang: Locale;
+}
 
+export function Metrics({ dict }: MetricsProps) {
   return (
     <section id="impact" className={`${theme.layout.section} ${theme.layout.sectionBorder} bg-black`}>
       <div className={theme.layout.container}>
@@ -31,21 +20,21 @@ export function Metrics() {
           <div className="max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
               <span className="h-1.5 w-1.5 rounded-full bg-neutral-400" />
-              <span>Empirical Proof</span>
+              <span>{dict.eyebrow}</span>
             </div>
             <h2 className={theme.typography.h2}>
-              Measurable impact across <br />
-              <span className={theme.typography.gradientText}>production deployments.</span>
+              {dict.titleLine1} <br />
+              <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
             </h2>
           </div>
           <p className={`${theme.typography.bodyMedium} max-w-md`}>
-            Rigorous benchmarking validated across high-stakes scientific, mathematical, and enterprise production environments.
+            {dict.description}
           </p>
         </div>
 
         {/* Metrics Display Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {metrics.map((item, idx) => (
+          {dict.items.map((item, idx) => (
             <div 
               key={idx} 
               className="border-t border-white/[0.14] pt-8 space-y-4 group hover:border-white/40 transition-colors duration-300"
