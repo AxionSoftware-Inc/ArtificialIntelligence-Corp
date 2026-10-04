@@ -65,38 +65,23 @@ export function Products({ dict, lang }: ProductsProps) {
                   </h3>
                 </Link>
 
-                <p className={`${theme.typography.bodyMedium} mb-8`}>
+                <p className={`${theme.typography.bodyMedium} line-clamp-3 mb-6`}>
                   {product.summary}
                 </p>
-
-                <ul className="space-y-3">
-                  {product.capabilities.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-sm text-neutral-300 leading-snug"
-                    >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-neutral-500" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
-              <div className="mt-10 pt-6 border-t border-white/[0.06] flex items-center justify-between">
+              <div className="pt-5 border-t border-white/[0.06] flex items-center justify-between">
                 <Link
                   href={`/${lang}/products/${product.slug}`}
-                  className={theme.components.buttonSecondary}
+                  className="inline-flex items-center text-xs font-mono text-cyan-400 hover:text-white transition-colors"
                 >
                   <span>{dict.learnMore}</span>
-                  <ArrowUpRight className="h-4 w-4 ml-1 text-neutral-500 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="h-3.5 w-3.5 ml-1" />
                 </Link>
 
-                <Link
-                  href={`/${lang}#contact`}
-                  className="text-xs font-mono text-neutral-400 hover:text-white transition-colors px-2 py-1"
-                >
-                  {product.cta}
-                </Link>
+                <span className="font-mono text-[11px] text-neutral-500">
+                  {product.category}
+                </span>
               </div>
             </article>
           ))}

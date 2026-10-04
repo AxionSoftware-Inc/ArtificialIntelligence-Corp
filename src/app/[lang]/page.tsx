@@ -6,7 +6,6 @@ import { Hero } from "@/components/Hero";
 import { TrackRecord } from "@/components/TrackRecord";
 import { Products } from "@/components/Products";
 import { HomeServices } from "@/components/HomeServices";
-import { Metrics } from "@/components/Metrics";
 import { Workflow } from "@/components/Workflow";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
@@ -37,22 +36,19 @@ export default async function Page({
         {/* 1. 3D Monolith Parallax Hero Showcase */}
         <Hero dict={dict.hero} lang={lang} />
 
-        {/* 2. Proven Track Record & Social Proof (20+ Projects, 5 Clients, 3 Partners) */}
-        <TrackRecord dict={dict.trackRecord} lang={lang} />
-
-        {/* 3. Proprietary Products (Mobile, Coder, Researcher) */}
+        {/* 2. Proprietary Products (Mobile, Coder, Researcher) - 50% lighter */}
         <Products dict={dict.products} lang={lang} />
 
-        {/* 4. Enterprise Engineering Services (Custom AI, Model Training, System Integration, Hardware) */}
+        {/* 3. Enterprise Engineering Services (Custom AI, Model Training, System Integration, Hardware) */}
         <HomeServices dict={dict.services} lang={lang} />
 
-        {/* 5. Empirical Results & Measurable Impact */}
-        <Metrics dict={dict.metrics} lang={lang} />
+        {/* 4. Track Record & Enterprise Clients (50% lighter, moved down) */}
+        <TrackRecord dict={dict.trackRecord} lang={lang} />
 
-        {/* 6. Three-Step Deployment Protocol */}
+        {/* 5. Three-Step Deployment Protocol */}
         <Workflow dict={dict.workflow} lang={lang} />
 
-        {/* 7. Final Technical Consultation CTA */}
+        {/* 6. Final Technical Consultation CTA */}
         <CTA dict={dict.cta} lang={lang} />
       </main>
 

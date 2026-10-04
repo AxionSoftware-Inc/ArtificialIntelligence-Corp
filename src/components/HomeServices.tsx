@@ -76,19 +76,9 @@ export function HomeServices({ dict, lang }: HomeServicesProps) {
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-4">
                     {item.shortDescription}
                   </p>
-
-                  {/* Highlights */}
-                  <ul className="space-y-2 mb-6">
-                    {item.deliverables.slice(0, 2).map((del, dIdx) => (
-                      <li key={dIdx} className="flex items-start gap-2 text-xs text-neutral-300">
-                        <span className="mt-1.5 h-1 w-1 rounded-full bg-cyan-400 shrink-0" />
-                        <span className="line-clamp-1">{del}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 <div className="pt-5 border-t border-white/[0.06] flex items-center justify-between">
