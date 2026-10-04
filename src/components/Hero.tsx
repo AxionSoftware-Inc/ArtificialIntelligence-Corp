@@ -50,7 +50,7 @@ export function Hero({ dict }: HeroProps) {
         <div 
           className="relative w-full h-full transition-transform duration-700 ease-out will-change-transform"
           style={{
-            transform: `perspective(1200px) rotateY(${mousePos.x * 6}deg) rotateX(${-mousePos.y * 6}deg) scale(1.02)`,
+            transform: `perspective(1200px) rotateY(${mousePos.x * 5}deg) rotateX(${-mousePos.y * 5}deg) scale(1.02)`,
           }}
         >
           <Image
@@ -58,19 +58,18 @@ export function Hero({ dict }: HeroProps) {
             alt={dict.imageAlt}
             fill
             priority
-            className="object-cover object-center lg:object-right opacity-95 transition-opacity duration-1000"
+            className="object-cover object-center lg:object-right opacity-90 transition-opacity duration-1000"
             sizes="(max-width: 1024px) 100vw, 65vw"
           />
 
           {/* Glowing Aura Ring overlay simulating ambient neon emission */}
           <div 
-            className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-cyan-400/10 blur-[140px] pointer-events-none animate-neon-breath" 
+            className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-cyan-400/15 blur-[130px] pointer-events-none animate-neon-breath" 
           />
 
-          {/* Deep Black Gradient Masks for Seamless Edge Bleed */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent lg:via-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+          {/* Seamless Edge Bleeds into pitch black */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent lg:from-black lg:via-black/30 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
         </div>
       </div>
 
