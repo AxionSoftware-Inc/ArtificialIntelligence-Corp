@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { theme } from "@/lib/design-system";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
+import { HeroMonolithScene } from "@/components/HeroMonolithScene";
 
 interface HeroProps {
   dict: Dictionary["hero"];
@@ -14,64 +14,19 @@ interface HeroProps {
 }
 
 export function Hero({ dict }: HeroProps) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!heroRef.current) return;
-      const rect = heroRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      setMousePos({ x, y });
-    };
-
-    const container = heroRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-    }
-    return () => {
-      if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, []);
-
   return (
     <section 
-      ref={heroRef}
       className="relative min-h-screen w-full bg-black flex flex-col justify-between overflow-hidden pt-32 pb-10 selection:bg-white/20 selection:text-white"
     >
-      {/* Subtle Luxury Dot Texture on the dark half */}
-      <div className="absolute inset-0 bg-luxury-dots opacity-25 pointer-events-none radial-mask" />
+      {/* Subtle Luxury Dot Texture */}
+      <div className="absolute inset-0 bg-luxury-dots opacity-20 pointer-events-none radial-mask" />
 
-      {/* Dynamic 3D Parallax Stage (Right-Anchored) */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] h-full z-0 pointer-events-none select-none overflow-hidden">
-        <div 
-          className="relative w-full h-full transition-transform duration-700 ease-out will-change-transform"
-          style={{
-            transform: `perspective(1200px) rotateY(${mousePos.x * 5}deg) rotateX(${-mousePos.y * 5}deg) scale(1.02)`,
-          }}
-        >
-          <Image
-            src="/images/hero-3d.jpg"
-            alt={dict.imageAlt}
-            fill
-            priority
-            className="object-cover object-center lg:object-right opacity-90 transition-opacity duration-1000"
-            sizes="(max-width: 1024px) 100vw, 65vw"
-          />
+      {/* Real-time Interactive WebGL 3D Monolith & Neon Halos Engine */}
+      <HeroMonolithScene />
 
-          {/* Glowing Aura Ring overlay simulating ambient neon emission */}
-          <div 
-            className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-cyan-400/15 blur-[130px] pointer-events-none animate-neon-breath" 
-          />
-
-          {/* Seamless Edge Bleeds into pitch black */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent lg:from-black lg:via-black/30 lg:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
-        </div>
-      </div>
+      {/* Edge Bleeds to guarantee 100% contrast for text and seamless section transition */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent lg:via-black/30 pointer-events-none z-[1]" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none z-[1]" />
 
       {/* Main Content Area */}
       <div className={`relative z-10 ${theme.layout.container} my-auto`}>
