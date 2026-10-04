@@ -42,11 +42,11 @@ export const uz: Dictionary = {
         category: "Qurilmadagi agent",
         name: "Syntheta Mobile",
         summary:
-          "To'liq telefonning o'zida ishlaydigan ixcham model. O'zbek tilini tushunadi va foydalanuvchi nomidan ilovalarni boshqaradi.",
+          "Telefon GPU'sida lokal ishlaydigan, RAM'dan atigi ~500 MB joy oluvchi ixcham model. O'zbek tilini tushunadi va foydalanuvchi nomidan ilovalarni boshqaradi.",
         capabilities: [
-          "Internetsiz ishlaydi, ma'lumotlar qurilmadan chiqmaydi",
-          "Og'zaki va yozma o'zbek tilini tushunadi",
-          "Oddiy so'rov bo'yicha ilova va sozlamalarni boshqaradi",
+          "Internetsiz, to'liq telefon GPU'sida lokal ishlaydi",
+          "Operativ xotiradan (RAM) atigi ~500 MB atrofida joy oladi",
+          "Og'zaki va yozma o'zbek tilida ilovalarni boshqaradi",
         ],
         status: "Ishlab chiqilmoqda",
         cta: "Syntheta Mobile sahifasi",
@@ -231,15 +231,15 @@ export const uz: Dictionary = {
   productPages: {
     "syntheta-mobile": {
       slug: "syntheta-mobile",
-      badge: "Qurilmadagi AI // Nol kechikish",
+      badge: "Mobil AI // Lokal GPU",
       name: "Syntheta Mobile",
-      tagline: "Smartfonni to'liq o'zbek tilida avtonom boshqaruvchi, faqat qurilmaning o'zida ishlaydigan lokal sun'iy intellekt.",
+      tagline: "Smartfonni to'liq o'zbek tilida avtonom boshqaruvchi, telefon GPU'sida lokal ishlaydigan sun'iy intellekt.",
       description:
-        "Syntheta Mobile — mobil protsessorlarning NPU chipida lokal ishlashga moslashtirilgan ixcham model. U ilovalarning interfeysini tushunadi, foydalanuvchi nomidan bosqichma-bosqich amallarni bajaradi va so'zlashuv o'zbek tilidagi og'zaki hamda yozma so'rovlarni tashqi serverlarga yubormasdan to'liq telefonda qayta ishlaydi.",
+        "Syntheta Mobile — smartfonning o'zida, lokal GPU yordamida ishlaydigan ixcham sun'iy intellekt. U operativ xotiradan (RAM) atigi 500 MB atrofida joy oladi, ilovalarni boshqaradi va o'zbek tilidagi og'zaki hamda yozma so'rovlarni internetsiz, to'liq telefonda bajaradi.",
       stats: [
-        { label: "Operativ xotira", value: "< 1.4 GB" },
-        { label: "NPU kechikishi", value: "< 12 ms" },
-        { label: "Internetga sarf", value: "0 bayt" },
+        { label: "Operativ xotira", value: "~500 MB" },
+        { label: "Hisoblash muhiti", value: "Lokal GPU" },
+        { label: "Internet sarfi", value: "0 bayt (Oflayn)" },
         { label: "O'zbek tili", value: "Mahalliy" },
       ],
       features: [
@@ -258,29 +258,29 @@ export const uz: Dictionary = {
         {
           title: "To'liq avtonom xavfsizlik perimetri",
           description:
-            "Telefonning apparat darajasidagi xavfsiz anklavida ishlaydi. Aloqa yoki Wi-Fi tarmog'i talab etilmaydi, shaxsiy yozishmalar va parollar hech qachon qurilmadan tashqariga chiqmaydi.",
-          tag: "Xavfsiz anklav",
+            "Telefonning xavfsiz ichki muhitida ishlaydi. Aloqa yoki Wi-Fi tarmog'i talab etilmaydi, shaxsiy yozishmalar va parollar hech qachon qurilmadan tashqariga chiqmaydi.",
+          tag: "Lokal xavfsizlik",
         },
         {
-          title: "4-bitli NPU optimallashuvi",
+          title: "Telefon GPU'sida lokal hisoblash",
           description:
-            "Snapdragon Hexagon, MediaTek APU va Apple Neural Engine chiplari uchun chuqur INT4/FP4 kvantlash bilan batareya sarfini minimal darajada saqlaydi.",
-          tag: "NPU tezlatgichi",
+            "Smartfonning grafik protsessori (GPU) orqali to'g'ridan-to'g'ri ishlaydi, operativ xotiradan atigi 500 MB atrofida joy oladi va batareya quvvatini tejaydi.",
+          tag: "Lokal GPU",
         },
       ],
       specs: [
-        { label: "Model hajmi", value: "1.8B – 3.2B kvantlangan arxitektura" },
-        { label: "Ishlash muhiti", value: "ONNX Runtime Mobile & CoreML / TFLite" },
-        { label: "Minimal talab", value: "Android 12+ (Snapdragon 8 Gen 2+) / iOS 17+" },
-        { label: "Oflayn ovoz tanish", value: "Integratsiyalangan Conformer-CTC o'zbek akustik modeli" },
-        { label: "Ma'lumotlar sizib chiqishi", value: "0.00% (To'liq internetsiz rejim)" },
-        { label: "Batareya iste'moli", value: "100 ta vazifa uchun 1.5% dan kam" },
+        { label: "Xotira iste'moli", value: "~500 MB operativ xotira (RAM)" },
+        { label: "Hisoblash yadrosi", value: "Telefonning ichki GPU tezlatgichi" },
+        { label: "Tarmoq talabi", value: "100% Oflayn (Internet talab etilmaydi)" },
+        { label: "Til qamrovi", value: "O'zbek tili (Ovozli va yozma so'rovlar)" },
+        { label: "Ma'lumotlar xavfsizligi", value: "0.00% chiqish (Ma'lumotlar faqat qurilmada qoladi)" },
+        { label: "Qo'llab-quvvatlanuvchi platformalar", value: "Android va iOS" },
       ],
       pipeline: [
         {
           step: "01",
           name: "Ovoz va matn tahlilchisi",
-          detail: "O'zbek tilidagi og'zaki yoki yozma so'rovni bevosita qurilma NPU chipida tokenlarga ajratadi.",
+          detail: "O'zbek tilidagi og'zaki yoki yozma so'rovni bevosita telefon GPU'sida tahlil qiladi.",
         },
         {
           step: "02",
@@ -296,11 +296,11 @@ export const uz: Dictionary = {
       demoSimulation: {
         userPrompt: "Telegramda Akmalga: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz' deb yoz va kalendarga eslatma qo'sh.",
         agentSteps: [
-          "[Qurilma NPU]: O'zbekcha so'rov tahlil qilindi: 1. Telegramda xabar, 2. Kalendarga eslatma.",
+          "[Telefon GPU]: O'zbekcha so'rov tahlil qilindi: 1. Telegramda xabar, 2. Kalendarga eslatma.",
           "[Lokal Agent]: Telegram ochilmoqda -> 'Akmal' kontakti topildi.",
           "[Lokal Agent]: Xabar kiritildi: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz'. Yuborildi.",
           "[Lokal Agent]: Qurilma Kalendariga o'tilmoqda -> Ertaga 10:00 ga uchrashuv belgilandi.",
-          "[Qurilma NPU]: Vazifalar 420 ms ichida to'liq yakunlandi. Internet sarflanmadi.",
+          "[Telefon GPU]: Vazifalar lokal GPU orqali bajarildi. RAM: ~500 MB, internet: 0 bayt.",
         ],
       },
     },

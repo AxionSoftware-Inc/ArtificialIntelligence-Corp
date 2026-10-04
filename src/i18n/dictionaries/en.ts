@@ -44,11 +44,11 @@ export const en = {
         category: "On-device agent",
         name: "Syntheta Mobile",
         summary:
-          "A compact model that runs entirely on the phone, understands Uzbek and operates apps on the user's behalf.",
+          "A compact model running locally on the phone's GPU using only ~500 MB RAM. Understands Uzbek and operates apps on the user's behalf.",
         capabilities: [
-          "Runs offline, data never leaves the device",
-          "Understands spoken and written Uzbek",
-          "Operates apps and settings from plain requests",
+          "Runs offline, entirely on the phone's local GPU",
+          "Ultra-lightweight footprint (~500 MB RAM)",
+          "Operates apps and settings from spoken or typed Uzbek requests",
         ],
         status: "In development",
         cta: "Explore Syntheta Mobile",
@@ -233,15 +233,15 @@ export const en = {
   productPages: {
     "syntheta-mobile": {
       slug: "syntheta-mobile",
-      badge: "On-Device SLM // Zero-Latency Intelligence",
+      badge: "Mobile AI // Local GPU Execution",
       name: "Syntheta Mobile",
-      tagline: "Autonomous smartphone operation with native Uzbek fluency. Completely on-device, zero cloud dependence.",
+      tagline: "Autonomous smartphone operation with native Uzbek fluency. Runs locally on the phone's GPU using ~500 MB RAM.",
       description:
-        "Syntheta Mobile is a compact, quantization-aware foundation model designed to run locally on mobile NPUs. It navigates native mobile apps via accessibility APIs, executes multi-step intent workflows, and natively understands Uzbek voice and text without round-tripping to remote cloud servers.",
+        "Syntheta Mobile is a compact, privacy-first AI engine designed to run entirely on the smartphone's local GPU. Operating within approximately 500 MB of RAM, it navigates apps, executes multi-step workflows, and natively understands spoken and written Uzbek without sending personal data to external clouds.",
       stats: [
-        { label: "Memory Footprint", value: "< 1.4 GB" },
-        { label: "NPU Latency", value: "< 12 ms" },
-        { label: "Cloud Uploads", value: "0 bytes" },
+        { label: "Memory Footprint", value: "~500 MB RAM" },
+        { label: "Execution Engine", value: "Local GPU" },
+        { label: "Cloud Uploads", value: "0 bytes (Offline)" },
         { label: "Uzbek Speech & Text", value: "Native" },
       ],
       features: [
@@ -258,31 +258,31 @@ export const en = {
           tag: "Mobile Agent",
         },
         {
-          title: "Air-Gapped Privacy Perimeter",
+          title: "100% Offline Privacy Perimeter",
           description:
-            "Runs inside the phone's hardware security enclave without requiring an active cellular or Wi-Fi connection. Private data, credentials, and personal chats never touch external servers.",
-          tag: "Hardware Enclave",
+            "Operates locally on device without requiring an active cellular or Wi-Fi connection. Private data, credentials, and personal chats never touch external servers.",
+          tag: "Local Privacy",
         },
         {
-          title: "4-bit NPU Weight Quantization",
+          title: "Local Mobile GPU Acceleration",
           description:
-            "Custom INT4/FP4 kernel execution optimized for Snapdragon Hexagon, MediaTek APU, and Apple Neural Engine, maintaining high perplexity accuracy with minimal battery drain.",
-          tag: "Silicon Acceleration",
+            "Directly leverages the phone's GPU for instant response times, utilizing only around 500 MB of system RAM while preserving device battery life.",
+          tag: "Local GPU",
         },
       ],
       specs: [
-        { label: "Model Parameters", value: "1.8B – 3.2B quantized mixture" },
-        { label: "Runtime Environment", value: "ONNX Runtime Mobile & CoreML / TFLite" },
-        { label: "Minimum Operating System", value: "Android 12+ (Snapdragon 8 Gen 2+) / iOS 17+" },
-        { label: "Offline Speech Recognition", value: "Integrated Conformer-CTC Uzbek Acoustic Model" },
-        { label: "Data Leakage Rate", value: "0.00% (Certified Air-Gapped by default)" },
-        { label: "Target Battery Impact", value: "< 1.5% per 100 autonomous tasks" },
+        { label: "Memory Footprint", value: "~500 MB system RAM" },
+        { label: "Compute Engine", value: "Smartphone's internal GPU" },
+        { label: "Network Requirement", value: "100% Offline (No internet needed)" },
+        { label: "Language Coverage", value: "Uzbek language (Voice & Text input)" },
+        { label: "Data Leakage Rate", value: "0.00% (All data remains on device)" },
+        { label: "Target Platforms", value: "Android and iOS" },
       ],
       pipeline: [
         {
           step: "01",
-          name: "Natural Language Acoustic Parser",
-          detail: "Transcribes and tokenizes raw Uzbek audio or text in real time on the device NPU.",
+          name: "Natural Language Parser",
+          detail: "Transcribes and tokenizes raw Uzbek audio or text in real time on the device GPU.",
         },
         {
           step: "02",
@@ -298,11 +298,11 @@ export const en = {
       demoSimulation: {
         userPrompt: "Telegramda Akmalga: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz' deb yoz va kalendarga eslatma qo'sh.",
         agentSteps: [
-          "[Device NPU]: Uzbek intent parsed: 1. Send Telegram message, 2. Add Calendar event.",
+          "[Device GPU]: Uzbek intent parsed: 1. Send Telegram message, 2. Add Calendar event.",
           "[Local Agent]: Opening Telegram -> locating contact 'Akmal'.",
           "[Local Agent]: Composing message: 'Ertaga soat 10:00 da loyiha bo'yicha ko'rishamiz'. Sent.",
           "[Local Agent]: Switching to Device Calendar -> creating event for tomorrow 10:00 AM.",
-          "[Device NPU]: Workflow completed in 420ms. Zero cloud calls.",
+          "[Device GPU]: Workflow completed locally via GPU. RAM: ~500 MB, cloud calls: 0.",
         ],
       },
     },
