@@ -90,7 +90,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
             </div>
             
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white font-sans leading-[1.1]">
-              {services.titleLine1} <br />
+              {services.titleLine1}{" "}
               <span className={theme.typography.gradientText}>{services.titleLine2}</span>
             </h1>
 

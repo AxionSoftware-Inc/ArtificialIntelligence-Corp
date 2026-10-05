@@ -66,7 +66,7 @@ export default async function ProductsIndexPage({ params }: ProductsIndexProps) 
               <span>{dict.products.eyebrow}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white font-sans">
-              {dict.products.titleLine1} <br />
+              {dict.products.titleLine1}{" "}
               <span className={theme.typography.gradientText}>{dict.products.titleLine2}</span>
             </h1>
             <p className={theme.typography.bodyLarge}>

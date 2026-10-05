@@ -30,11 +30,10 @@ export const uz: Dictionary = {
     imageAlt: "Yorqin ramkali, ko'tarilib boruvchi monolitlar",
   },
   products: {
-    eyebrow: "Mustaqil Mahsulotlar",
-    titleLine1: "Amaliy AI tizimlari.",
-    titleLine2: "Lokal va avtonom agentlar.",
-    description:
-      "Qurilmada ishlaydigan lokal modellar hamda dasturlash va ilmiy tadqiqotlar uchun avtonom agentlar.",
+    eyebrow: "Mahsulotlar",
+    titleLine1: "Mustaqil",
+    titleLine2: "mahsulotlar",
+    description: "Lokal va avtonom AI tizimlari.",
     learnMore: "Batafsil ko'rish",
     viewAll: "Barcha mahsulotlar",
     items: [
@@ -86,13 +85,12 @@ export const uz: Dictionary = {
     ],
   },
   services: {
-    eyebrow: "Muhandislik Xizmatlari",
-    titleLine1: "Maxsus AI Muhandisligi.",
-    titleLine2: "Infratuzilmangizga Moslashtirilgan.",
-    description:
-      "Noyob neyron tarmoqlarini noldan qurish, modellarni korporativ maxfiy ma'lumotlarda o'qitish, tashqi dunyodan uzilgan (air-gapped) ichki tizimlarga ulash va maxsus chiplar uchun chuqur optimallashtirish.",
-    viewAll: "Barcha Xizmatlarni Ko'rish",
-    requestAudit: "Texnik Auditga Buyurtma Berish",
+    eyebrow: "Xizmatlar",
+    titleLine1: "Muhandislik",
+    titleLine2: "xizmatlari",
+    description: "Kompaniyalar uchun maxsus AI yechimlari.",
+    viewAll: "Barcha xizmatlar",
+    requestAudit: "Texnik auditga buyurtma",
     learnMore: "Texnik tafsilotlar",
     items: [
       {

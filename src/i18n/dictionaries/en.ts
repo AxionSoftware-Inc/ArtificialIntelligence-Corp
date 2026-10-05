@@ -32,11 +32,10 @@ export const en = {
     imageAlt: "Ascending monoliths with glowing frames",
   },
   products: {
-    eyebrow: "Proprietary Products",
-    titleLine1: "Autonomous Systems.",
-    titleLine2: "On-Device & Engineering Agents.",
-    description:
-      "Compact local models running on consumer hardware, and autonomous agents for software engineering and scientific research.",
+    eyebrow: "Products",
+    titleLine1: "Proprietary",
+    titleLine2: "products",
+    description: "On-device and autonomous AI systems.",
     learnMore: "View details",
     viewAll: "Explore All Products",
     items: [
@@ -88,11 +87,10 @@ export const en = {
     ],
   },
   services: {
-    eyebrow: "Engineering Services",
-    titleLine1: "Bespoke AI Engineering.",
-    titleLine2: "Engineered for Your Infrastructure.",
-    description:
-      "We design custom neural networks, fine-tune models on confidential data, integrate with enterprise ERPs, and optimize inference on specialized hardware.",
+    eyebrow: "Services",
+    titleLine1: "Engineering",
+    titleLine2: "services",
+    description: "Tailored enterprise AI solutions.",
     viewAll: "Explore All Services",
     requestAudit: "Request Architecture Consultation",
     learnMore: "Technical details",

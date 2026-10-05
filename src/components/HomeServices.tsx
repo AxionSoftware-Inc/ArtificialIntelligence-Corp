@@ -23,17 +23,17 @@ export function HomeServices({ dict, lang }: HomeServicesProps) {
     >
       <div className={theme.layout.container}>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div className="max-w-xl space-y-2">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-widest">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
               <span>{dict.eyebrow}</span>
             </div>
             <h2 className={theme.typography.h2}>
-              {dict.titleLine1} <br />
+              {dict.titleLine1}{" "}
               <span className={theme.typography.gradientText}>{dict.titleLine2}</span>
             </h2>
-            <p className={theme.typography.bodyLarge}>
+            <p className="text-sm sm:text-base text-neutral-400">
               {dict.description}
             </p>
           </div>
