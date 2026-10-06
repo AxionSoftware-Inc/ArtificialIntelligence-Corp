@@ -29,7 +29,6 @@ export function Navbar({ dict, lang }: NavbarProps) {
   const navLinks = [
     { label: dict.products, href: `/${lang}/products` },
     { label: dict.services, href: `/${lang}/services` },
-    { label: dict.impact, href: `/${lang}#track-record` },
     { label: dict.process, href: `/${lang}#process` },
     { label: dict.contact, href: `/${lang}#contact` },
   ];

@@ -3,7 +3,6 @@ import { locales, hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { TrackRecord } from "@/components/TrackRecord";
 import { Products } from "@/components/Products";
 import { HomeServices } from "@/components/HomeServices";
 import { Workflow } from "@/components/Workflow";
@@ -36,19 +35,16 @@ export default async function Page({
         {/* 1. 3D Monolith Parallax Hero Showcase */}
         <Hero dict={dict.hero} lang={lang} />
 
-        {/* 2. Proprietary Products (Mobile, Coder, Researcher) - 50% lighter */}
+        {/* 2. Proprietary Products (Mobile, Coder, Researcher) */}
         <Products dict={dict.products} lang={lang} />
 
         {/* 3. Enterprise Engineering Services (Custom AI, Model Training, System Integration, Hardware) */}
         <HomeServices dict={dict.services} lang={lang} />
 
-        {/* 4. Track Record & Enterprise Clients (50% lighter, moved down) */}
-        <TrackRecord dict={dict.trackRecord} lang={lang} />
-
-        {/* 5. Three-Step Deployment Protocol */}
+        {/* 4. Three-Step Deployment Protocol */}
         <Workflow dict={dict.workflow} lang={lang} />
 
-        {/* 6. Final Technical Consultation CTA */}
+        {/* 5. Final Technical Consultation CTA */}
         <CTA dict={dict.cta} lang={lang} />
       </main>
 
