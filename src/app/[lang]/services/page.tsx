@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: ServicesPageProps): Promise<M
   const dict = await getDictionary(locale);
 
   return {
-    title: `${dict.services.titleLine1} ${dict.services.titleLine2} | Syntheta AI`,
+    title: `${dict.services.titleLine1} ${dict.services.titleLine2} | Tensoric AI`,
     description: dict.services.description,
     alternates: {
       canonical: `/${locale}/services`,

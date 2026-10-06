@@ -4,11 +4,11 @@
  */
 export const en = {
   meta: {
-    title: "Syntheta AI: Applied AI Research Lab",
+    title: "Tensoric AI: Applied AI Research Lab",
     description:
       "We build on-device language models and autonomous agents for software engineering and scientific research.",
     keywords:
-      "on-device AI, autonomous coding agent, scientific research AI, local LLM, Uzbek AI, sovereign compute, Syntheta",
+      "on-device AI, autonomous coding agent, scientific research AI, local LLM, Uzbek AI, sovereign compute, Tensoric",
   },
   nav: {
     products: "Products",
@@ -41,9 +41,9 @@ export const en = {
     items: [
       {
         id: "mobile-agent",
-        slug: "syntheta-mobile",
+        slug: "tensoric-mobile",
         category: "On-device agent",
-        name: "Syntheta Mobile",
+        name: "Tensoric Mobile",
         summary:
           "A compact model running locally on the phone's GPU using only ~500 MB RAM. Understands Uzbek and operates apps on the user's behalf.",
         capabilities: [
@@ -52,13 +52,13 @@ export const en = {
           "Operates apps and settings from spoken or typed Uzbek requests",
         ],
         status: "In development",
-        cta: "Explore Syntheta Mobile",
+        cta: "Explore Tensoric Mobile",
       },
       {
         id: "coder",
-        slug: "syntheta-code",
+        slug: "tensoric-code",
         category: "Coding agent",
-        name: "Syntheta Code",
+        name: "Tensoric Code",
         summary:
           "An autonomous software engineer for the terminal and IDE. It reads a repository, plans changes, edits files and runs tests.",
         capabilities: [
@@ -67,13 +67,13 @@ export const en = {
           "Every change is a diff you review and approve",
         ],
         status: "In development",
-        cta: "Explore Syntheta Code",
+        cta: "Explore Tensoric Code",
       },
       {
         id: "researcher",
-        slug: "syntheta-research",
+        slug: "tensoric-research",
         category: "Research agent",
-        name: "Syntheta Research",
+        name: "Tensoric Research",
         summary:
           "A deep-research agent for scientific work. It reviews literature, runs analyses and reports findings with cited sources.",
         capabilities: [
@@ -82,7 +82,7 @@ export const en = {
           "Every claim linked to a verifiable source",
         ],
         status: "In development",
-        cta: "Explore Syntheta Research",
+        cta: "Explore Tensoric Research",
       },
     ],
   },
@@ -483,13 +483,13 @@ export const en = {
     securityGuarantee: "Zero telemetry boundary — weights verified and hosted in your trust enclave.",
   },
   productPages: {
-    "syntheta-mobile": {
-      slug: "syntheta-mobile",
+    "tensoric-mobile": {
+      slug: "tensoric-mobile",
       badge: "Mobile AI // Local GPU Execution",
-      name: "Syntheta Mobile",
+      name: "Tensoric Mobile",
       tagline: "Autonomous smartphone operation with native Uzbek fluency. Runs locally on the phone's GPU using ~500 MB RAM.",
       description:
-        "Syntheta Mobile is a compact, privacy-first AI engine designed to run entirely on the smartphone's local GPU. Operating within approximately 500 MB of RAM, it navigates apps, executes multi-step workflows, and natively understands spoken and written Uzbek without sending personal data to external clouds.",
+        "Tensoric Mobile is a compact, privacy-first AI engine designed to run entirely on the smartphone's local GPU. Operating within approximately 500 MB of RAM, it navigates apps, executes multi-step workflows, and natively understands spoken and written Uzbek without sending personal data to external clouds.",
       stats: [
         { label: "Memory Footprint", value: "~500 MB RAM" },
         { label: "Execution Engine", value: "Local GPU" },
@@ -558,13 +558,13 @@ export const en = {
         ],
       },
     },
-    "syntheta-code": {
-      slug: "syntheta-code",
+    "tensoric-code": {
+      slug: "tensoric-code",
       badge: "Autonomous Software Engineer // CLI & IDE",
-      name: "Syntheta Code",
+      name: "Tensoric Code",
       tagline: "The terminal and IDE agent that plans changes, edits entire codebases, runs test suites, and drafts verified PRs.",
       description:
-        "Syntheta Code is an autonomous coding agent architected for production codebases. It operates inside your terminal or editor, maintains 256k-token repository-wide context, reads multi-file dependencies, runs your test suites in isolated sandboxes, and verifies that tests pass before presenting atomic diffs for your review.",
+        "Tensoric Code is an autonomous coding agent architected for production codebases. It operates inside your terminal or editor, maintains 256k-token repository-wide context, reads multi-file dependencies, runs your test suites in isolated sandboxes, and verifies that tests pass before presenting atomic diffs for your review.",
       stats: [
         { label: "Context Window", value: "256k tokens" },
         { label: "Multi-file Edits", value: "Automated" },
@@ -623,23 +623,23 @@ export const en = {
         },
       ],
       demoSimulation: {
-        userPrompt: "$ syntheta refactor --fix-race-condition src/worker/queue.ts",
+        userPrompt: "$ tensoric refactor --fix-race-condition src/worker/queue.ts",
         agentSteps: [
-          "[Syntheta Code]: Analyzing queue.ts concurrency primitives and related test files.",
-          "[Syntheta Code]: Detected mutex starvation under high throughput in sync_job().",
-          "[Syntheta Code]: Applying non-blocking ring buffer refactor across queue.ts and pool.ts.",
-          "[Syntheta Code]: Executing 'npm test' -> 18 passed, 0 failed. Time elapsed: 1.8s.",
-          "[Syntheta Code]: Git diff prepared: +38 / -14 lines. Ready for your review.",
+          "[Tensoric Code]: Analyzing queue.ts concurrency primitives and related test files.",
+          "[Tensoric Code]: Detected mutex starvation under high throughput in sync_job().",
+          "[Tensoric Code]: Applying non-blocking ring buffer refactor across queue.ts and pool.ts.",
+          "[Tensoric Code]: Executing 'npm test' -> 18 passed, 0 failed. Time elapsed: 1.8s.",
+          "[Tensoric Code]: Git diff prepared: +38 / -14 lines. Ready for your review.",
         ],
       },
     },
-    "syntheta-research": {
-      slug: "syntheta-research",
+    "tensoric-research": {
+      slug: "tensoric-research",
       badge: "Scientific Discovery Agent // Formal Reasoning",
-      name: "Syntheta Research",
+      name: "Tensoric Research",
       tagline: "Autonomous scientific exploration across millions of papers, formal proof checking, and reproducible empirical analysis.",
       description:
-        "Syntheta Research conducts deep scientific investigations across peer-reviewed publications and clinical/genomic datasets. It synthesizes literature, validates mathematical lemmas using formal verification engines (Lean 4, Z3), and outputs reproducible computational workflows with every citation verified against primary sources.",
+        "Tensoric Research conducts deep scientific investigations across peer-reviewed publications and clinical/genomic datasets. It synthesizes literature, validates mathematical lemmas using formal verification engines (Lean 4, Z3), and outputs reproducible computational workflows with every citation verified against primary sources.",
       stats: [
         { label: "Corpus Coverage", value: "100M+ papers" },
         { label: "Proof Engine", value: "Lean 4 / Z3" },
@@ -700,11 +700,11 @@ export const en = {
       demoSimulation: {
         userPrompt: "Synthesize recent 2025-2026 breakthroughs in 4-bit transformer quantization for edge devices.",
         agentSteps: [
-          "[Syntheta Research]: Ingested 142 peer-reviewed papers from arXiv and IEEE.",
-          "[Syntheta Research]: Extracted Pareto frontiers: perplexity vs. memory bandwidth on mobile NPUs.",
-          "[Syntheta Research]: Verified mathematical proofs for activation outlier smoothing in Lean 4.",
-          "[Syntheta Research]: Generated benchmark reproduction script with PyTorch & Triton kernels.",
-          "[Syntheta Research]: Published dossier: 24 verified references, zero ungrounded assertions.",
+          "[Tensoric Research]: Ingested 142 peer-reviewed papers from arXiv and IEEE.",
+          "[Tensoric Research]: Extracted Pareto frontiers: perplexity vs. memory bandwidth on mobile NPUs.",
+          "[Tensoric Research]: Verified mathematical proofs for activation outlier smoothing in Lean 4.",
+          "[Tensoric Research]: Generated benchmark reproduction script with PyTorch & Triton kernels.",
+          "[Tensoric Research]: Published dossier: 24 verified references, zero ungrounded assertions.",
         ],
       },
     },
@@ -712,4 +712,4 @@ export const en = {
 };
 
 export type Dictionary = typeof en;
-export type ProductDetail = (typeof en.productPages)["syntheta-mobile"];
+export type ProductDetail = (typeof en.productPages)["tensoric-mobile"];

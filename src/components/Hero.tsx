@@ -85,7 +85,7 @@ export function Hero({ dict, lang }: HeroProps) {
             <span className="uppercase text-neutral-400">RESEARCH COHORT 2026 // ON-DEVICE & AGENTS</span>
           </div>
           <div className="hidden sm:flex items-center gap-6">
-            <span>MODEL: SYNTHETA-1</span>
+            <span>MODEL: TENSORIC-1</span>
             <span>VERIFIED: LEAN 4 / Z3</span>
             <span>AIR-GAPPED COMPLIANT</span>
           </div>

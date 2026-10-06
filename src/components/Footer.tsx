@@ -38,9 +38,9 @@ export function Footer({ dict, lang }: FooterProps) {
             </span>
             <ul className="space-y-2 text-neutral-500">
               <li><Link href={`/${lang}/products`} className="hover:text-white transition-colors">{dict.productsTitle}</Link></li>
-              <li><Link href={`/${lang}/products/syntheta-mobile`} className="hover:text-white transition-colors">Syntheta Mobile</Link></li>
-              <li><Link href={`/${lang}/products/syntheta-code`} className="hover:text-white transition-colors">Syntheta Code</Link></li>
-              <li><Link href={`/${lang}/products/syntheta-research`} className="hover:text-white transition-colors">Syntheta Research</Link></li>
+              <li><Link href={`/${lang}/products/tensoric-mobile`} className="hover:text-white transition-colors">Tensoric Mobile</Link></li>
+              <li><Link href={`/${lang}/products/tensoric-code`} className="hover:text-white transition-colors">Tensoric Code</Link></li>
+              <li><Link href={`/${lang}/products/tensoric-research`} className="hover:text-white transition-colors">Tensoric Research</Link></li>
             </ul>
           </div>
 

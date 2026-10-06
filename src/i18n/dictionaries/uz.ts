@@ -2,11 +2,11 @@ import type { Dictionary } from "./en";
 
 export const uz: Dictionary = {
   meta: {
-    title: "Syntheta AI: amaliy sun'iy intellekt tadqiqot laboratoriyasi",
+    title: "Tensoric AI: amaliy sun'iy intellekt tadqiqot laboratoriyasi",
     description:
       "Biz qurilmada ishlaydigan til modellari hamda dasturlash va ilmiy tadqiqot uchun avtonom agentlar yaratamiz.",
     keywords:
-      "qurilmadagi AI, avtonom dasturlash agenti, ilmiy tadqiqot sun'iy intellekti, lokal til modeli, o'zbekcha AI, xususiy hisoblash, Syntheta",
+      "qurilmadagi AI, avtonom dasturlash agenti, ilmiy tadqiqot sun'iy intellekti, lokal til modeli, o'zbekcha AI, xususiy hisoblash, Tensoric",
   },
   nav: {
     products: "Mahsulotlar",
@@ -39,9 +39,9 @@ export const uz: Dictionary = {
     items: [
       {
         id: "mobile-agent",
-        slug: "syntheta-mobile",
+        slug: "tensoric-mobile",
         category: "Qurilmadagi agent",
-        name: "Syntheta Mobile",
+        name: "Tensoric Mobile",
         summary:
           "Telefon GPU'sida lokal ishlaydigan, RAM'dan atigi ~500 MB joy oluvchi ixcham model. O'zbek tilini tushunadi va foydalanuvchi nomidan ilovalarni boshqaradi.",
         capabilities: [
@@ -50,13 +50,13 @@ export const uz: Dictionary = {
           "Og'zaki va yozma o'zbek tilida ilovalarni boshqaradi",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Syntheta Mobile sahifasi",
+        cta: "Tensoric Mobile sahifasi",
       },
       {
         id: "coder",
-        slug: "syntheta-code",
+        slug: "tensoric-code",
         category: "Dasturlash agenti",
-        name: "Syntheta Code",
+        name: "Tensoric Code",
         summary:
           "Terminal va IDE uchun avtonom dasturchi. Repozitoriyani o'qiydi, o'zgarishlarni rejalashtiradi, fayllarni tahrirlaydi va testlarni ishga tushiradi.",
         capabilities: [
@@ -65,13 +65,13 @@ export const uz: Dictionary = {
           "Har bir o'zgarish siz ko'rib tasdiqlaydigan diff ko'rinishida",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Syntheta Code sahifasi",
+        cta: "Tensoric Code sahifasi",
       },
       {
         id: "researcher",
-        slug: "syntheta-research",
+        slug: "tensoric-research",
         category: "Tadqiqot agenti",
-        name: "Syntheta Research",
+        name: "Tensoric Research",
         summary:
           "Ilmiy ishlar uchun chuqur tadqiqot agenti. Adabiyotni o'rganadi, tahlil o'tkazadi va xulosalarni manbalar bilan taqdim etadi.",
         capabilities: [
@@ -80,7 +80,7 @@ export const uz: Dictionary = {
           "Har bir da'vo tekshirish mumkin bo'lgan manbaga bog'langan",
         ],
         status: "Ishlab chiqilmoqda",
-        cta: "Syntheta Research sahifasi",
+        cta: "Tensoric Research sahifasi",
       },
     ],
   },
@@ -481,13 +481,13 @@ export const uz: Dictionary = {
     securityGuarantee: "To'liq izolyatsiya qilingan muhit — ma'lumotlar faqat o'z xavfsizlik perimetringizda saqlanadi.",
   },
   productPages: {
-    "syntheta-mobile": {
-      slug: "syntheta-mobile",
+    "tensoric-mobile": {
+      slug: "tensoric-mobile",
       badge: "Mobil AI // Lokal GPU",
-      name: "Syntheta Mobile",
+      name: "Tensoric Mobile",
       tagline: "Smartfonni to'liq o'zbek tilida avtonom boshqaruvchi, telefon GPU'sida lokal ishlaydigan sun'iy intellekt.",
       description:
-        "Syntheta Mobile — smartfonning o'zida, lokal GPU yordamida ishlaydigan ixcham sun'iy intellekt. U operativ xotiradan (RAM) atigi 500 MB atrofida joy oladi, ilovalarni boshqaradi va o'zbek tilidagi og'zaki hamda yozma so'rovlarni internetsiz, to'liq telefonda bajaradi.",
+        "Tensoric Mobile — smartfonning o'zida, lokal GPU yordamida ishlaydigan ixcham sun'iy intellekt. U operativ xotiradan (RAM) atigi 500 MB atrofida joy oladi, ilovalarni boshqaradi va o'zbek tilidagi og'zaki hamda yozma so'rovlarni internetsiz, to'liq telefonda bajaradi.",
       stats: [
         { label: "Operativ xotira", value: "~500 MB" },
         { label: "Hisoblash muhiti", value: "Lokal GPU" },
@@ -556,13 +556,13 @@ export const uz: Dictionary = {
         ],
       },
     },
-    "syntheta-code": {
-      slug: "syntheta-code",
+    "tensoric-code": {
+      slug: "tensoric-code",
       badge: "Avtonom dasturlash agenti // CLI & IDE",
-      name: "Syntheta Code",
+      name: "Tensoric Code",
       tagline: "Repozitoriyani to'liq tushunadigan, kod yozadigan, testlarni o'tkazadigan va toza diff tayyorlaydigan avtonom dasturchi.",
       description:
-        "Syntheta Code — ishlab chiqarishdagi yirik kod bazalari uchun mo'ljallangan avtonom agent. U terminalda yoki dasturlash muhitingizda ishlaydi, 256k tokenlik keng kontekstda bir nechta fayllardagi bog'liqliklarni tahlil qiladi, testlarni xavfsiz muhitda tekshiradi va barcha testlar muvaffaqiyatli o'tgach, sizga ko'rib chiqish uchun tartibli diff taqdim etadi.",
+        "Tensoric Code — ishlab chiqarishdagi yirik kod bazalari uchun mo'ljallangan avtonom agent. U terminalda yoki dasturlash muhitingizda ishlaydi, 256k tokenlik keng kontekstda bir nechta fayllardagi bog'liqliklarni tahlil qiladi, testlarni xavfsiz muhitda tekshiradi va barcha testlar muvaffaqiyatli o'tgach, sizga ko'rib chiqish uchun tartibli diff taqdim etadi.",
       stats: [
         { label: "Kontekst hajmi", value: "256k token" },
         { label: "Ko'p faylli tahrir", value: "Avtomatik" },
@@ -621,23 +621,23 @@ export const uz: Dictionary = {
         },
       ],
       demoSimulation: {
-        userPrompt: "$ syntheta refactor --fix-race-condition src/worker/queue.ts",
+        userPrompt: "$ tensoric refactor --fix-race-condition src/worker/queue.ts",
         agentSteps: [
-          "[Syntheta Code]: queue.ts konkurentlik tuzilmasi va tegishli test fayllari o'rganilmoqda.",
-          "[Syntheta Code]: sync_job() funksiyasida yuqori yuklamada bloklanish (mutex starvation) aniqlandi.",
-          "[Syntheta Code]: queue.ts va pool.ts bo'ylab nobloklovchi ring bufer tuzilmasi tatbiq etildi.",
-          "[Syntheta Code]: 'npm test' bajarildi -> 18 ta test o'tdi, 0 xato. Vaqt: 1.8s.",
-          "[Syntheta Code]: Git diff tayyor: +38 / -14 qator. Ko'rib chiqishingiz mumkin.",
+          "[Tensoric Code]: queue.ts konkurentlik tuzilmasi va tegishli test fayllari o'rganilmoqda.",
+          "[Tensoric Code]: sync_job() funksiyasida yuqori yuklamada bloklanish (mutex starvation) aniqlandi.",
+          "[Tensoric Code]: queue.ts va pool.ts bo'ylab nobloklovchi ring bufer tuzilmasi tatbiq etildi.",
+          "[Tensoric Code]: 'npm test' bajarildi -> 18 ta test o'tdi, 0 xato. Vaqt: 1.8s.",
+          "[Tensoric Code]: Git diff tayyor: +38 / -14 qator. Ko'rib chiqishingiz mumkin.",
         ],
       },
     },
-    "syntheta-research": {
-      slug: "syntheta-research",
+    "tensoric-research": {
+      slug: "tensoric-research",
       badge: "Ilmiy kashfiyot agenti // Formal mantiq",
-      name: "Syntheta Research",
+      name: "Tensoric Research",
       tagline: "Millionlab ilmiy maqolalarni o'rganuvchi, matematik isbotlarni tekshiruvchi va takrorlanuvchi hisob-kitoblarni bajaruvchi agent.",
       description:
-        "Syntheta Research taqrizdan o'tgan ilmiy maqolalar va klinik/genomik ma'lumotlar bazalarida chuqur tadqiqotlar olib boradi. Ilmiy adabiyotlarni umumlashtiradi, Lean 4 va Z3 kabi formal tekshirish vositalari orqali teoremalarni isbotlaydi va har bir xulosani birlamchi manbaga havola bilan tasdiqlaydi.",
+        "Tensoric Research taqrizdan o'tgan ilmiy maqolalar va klinik/genomik ma'lumotlar bazalarida chuqur tadqiqotlar olib boradi. Ilmiy adabiyotlarni umumlashtiradi, Lean 4 va Z3 kabi formal tekshirish vositalari orqali teoremalarni isbotlaydi va har bir xulosani birlamchi manbaga havola bilan tasdiqlaydi.",
       stats: [
         { label: "Ilmiy maqolalar", value: "100M+ maqola" },
         { label: "Isbotlash yadrosi", value: "Lean 4 / Z3" },
@@ -698,11 +698,11 @@ export const uz: Dictionary = {
       demoSimulation: {
         userPrompt: "Mobil qurilmalar uchun 4-bitli transformer kvantlash bo'yicha 2025-2026 yillardagi yutuqlarni umumlashtir.",
         agentSteps: [
-          "[Syntheta Research]: arXiv va IEEE bazalaridan 142 ta taqrizdan o'tgan maqola tahlil qilindi.",
-          "[Syntheta Research]: Mobil NPU xotira o'tkazuvchanligi va aniqlik balansi bo'yicha Pareto grafigi tuzildi.",
-          "[Syntheta Research]: Chiqish qiymatlarini silliqlash bo'yicha matematik isbotlar Lean 4 da tasdiqlandi.",
-          "[Syntheta Research]: PyTorch va Triton yadrolari bilan tajribani takrorlash skripti shakllantirildi.",
-          "[Syntheta Research]: 24 ta tekshirilgan manba bilan ilmiy xulosa tayyorlandi, asossiz da'volar yo'q.",
+          "[Tensoric Research]: arXiv va IEEE bazalaridan 142 ta taqrizdan o'tgan maqola tahlil qilindi.",
+          "[Tensoric Research]: Mobil NPU xotira o'tkazuvchanligi va aniqlik balansi bo'yicha Pareto grafigi tuzildi.",
+          "[Tensoric Research]: Chiqish qiymatlarini silliqlash bo'yicha matematik isbotlar Lean 4 da tasdiqlandi.",
+          "[Tensoric Research]: PyTorch va Triton yadrolari bilan tajribani takrorlash skripti shakllantirildi.",
+          "[Tensoric Research]: 24 ta tekshirilgan manba bilan ilmiy xulosa tayyorlandi, asossiz da'volar yo'q.",
         ],
       },
     },

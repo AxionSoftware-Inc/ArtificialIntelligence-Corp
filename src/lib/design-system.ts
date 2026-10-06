@@ -1,12 +1,12 @@
 /**
- * Central Global Design System for SYNTHETA AI
+ * Central Global Design System for TENSORIC
  * Modify any token here to dynamically update the entire website.
  */
 
 export const siteConfig = {
   brand: {
-    name: "SYNTHETA AI",
-    subName: "Labs",
+    name: "TENSORIC",
+    subName: "AI",
     badgeText: "Frontier Intelligence for Enterprise & Labs",
     tagline: "Turn Intelligence Into Growth Infrastructure.",
     description:
@@ -39,7 +39,7 @@ export const siteConfig = {
       id: "mobile-agent",
       index: "01",
       category: "On-device agent",
-      name: "Syntheta Mobile",
+      name: "Tensoric Mobile",
       summary:
         "A compact local model that runs entirely on the phone, understands Uzbek, and operates apps on the user's behalf.",
       capabilities: [
@@ -54,7 +54,7 @@ export const siteConfig = {
       id: "coder",
       index: "02",
       category: "Coding agent",
-      name: "Syntheta Code",
+      name: "Tensoric Code",
       summary:
         "An autonomous software engineer for the terminal and IDE. It reads a repository, plans changes, edits files and runs tests.",
       capabilities: [
@@ -69,7 +69,7 @@ export const siteConfig = {
       id: "researcher",
       index: "03",
       category: "Research agent",
-      name: "Syntheta Research",
+      name: "Tensoric Research",
       summary:
         "A deep-research agent for scientific work. It surveys literature, runs analyses and returns findings with cited sources.",
       capabilities: [

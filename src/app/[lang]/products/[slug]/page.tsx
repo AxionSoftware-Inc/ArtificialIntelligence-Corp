@@ -15,7 +15,7 @@ interface ProductPageProps {
   }>;
 }
 
-const validSlugs = ["syntheta-mobile", "syntheta-code", "syntheta-research"] as const;
+const validSlugs = ["tensoric-mobile", "tensoric-code", "tensoric-research"] as const;
 type ProductSlug = (typeof validSlugs)[number];
 
 export async function generateStaticParams() {
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       title: `${product.name} — ${product.badge}`,
       description: product.tagline,
       url: `/${locale}/products/${slug}`,
-      siteName: "Syntheta AI",
+      siteName: "Tensoric AI",
       type: "website",
     },
   };
@@ -73,7 +73,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   // Icon selector based on product
   const ProductIcon =
-    slug === "syntheta-mobile" ? Smartphone : slug === "syntheta-code" ? Terminal : Microscope;
+    slug === "tensoric-mobile" ? Smartphone : slug === "tensoric-code" ? Terminal : Microscope;
 
   return (
     <div className="min-h-screen flex flex-col bg-black text-white selection:bg-white/20 selection:text-white scroll-smooth">

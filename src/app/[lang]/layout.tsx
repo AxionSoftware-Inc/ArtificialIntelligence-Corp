@@ -34,21 +34,22 @@ export async function generateMetadata({
     metadataBase: new URL(siteUrl),
     title: {
       default: dict.meta.title,
-      template: "%s | Syntheta AI",
+      template: "%s | Tensoric AI",
     },
     description: dict.meta.description,
     keywords: dict.meta.keywords.split(",").map((k) => k.trim()),
-    authors: [{ name: "Syntheta AI Research Laboratory", url: siteUrl }],
-    creator: "Syntheta AI",
-    publisher: "Syntheta AI",
-    applicationName: "Syntheta AI",
+    authors: [{ name: "Tensoric AI Research Laboratory", url: siteUrl }],
+    creator: "Tensoric AI",
+    publisher: "Tensoric AI",
+    applicationName: "Tensoric AI",
     icons: {
       icon: [
         { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
         { url: "/favicon.svg", type: "image/svg+xml" },
       ],
       apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
-      shortcut: ["/icon.svg"],
+      shortcut: ["/favicon.ico"],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -65,13 +66,13 @@ export async function generateMetadata({
       url: canonicalUrl,
       title: dict.meta.title,
       description: dict.meta.description,
-      siteName: "Syntheta AI",
+      siteName: "Tensoric AI",
       images: [
         {
           url: "/icon.svg",
           width: 512,
           height: 512,
-          alt: "Syntheta AI Monolith & Halo Emblem",
+          alt: "Tensoric AI Neural Lattice Emblem",
         },
       ],
     },
@@ -79,7 +80,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      creator: "@syntheta_ai",
+      creator: "@tensoric_ai",
       images: ["/icon.svg"],
     },
     robots: {
@@ -113,7 +114,7 @@ export default async function RootLayout({
       {
         "@type": "Organization",
         "@id": "https://tensoric.space/#organization",
-        name: "Syntheta AI",
+        name: "Tensoric AI",
         url: "https://tensoric.space",
         logo: {
           "@type": "ImageObject",
@@ -128,7 +129,7 @@ export default async function RootLayout({
         "@type": "WebSite",
         "@id": `https://tensoric.space/${safeLang}/#website`,
         url: `https://tensoric.space/${safeLang}`,
-        name: "Syntheta AI",
+        name: "Tensoric AI",
         publisher: {
           "@id": "https://tensoric.space/#organization",
         },
@@ -136,10 +137,10 @@ export default async function RootLayout({
       },
       {
         "@type": "SoftwareApplication",
-        name: "Syntheta Mobile",
+        name: "Tensoric Mobile",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Android, iOS",
-        description: dict.productPages["syntheta-mobile"].description,
+        description: dict.productPages["tensoric-mobile"].description,
         offers: {
           "@type": "Offer",
           price: "0",
@@ -148,17 +149,17 @@ export default async function RootLayout({
       },
       {
         "@type": "SoftwareApplication",
-        name: "Syntheta Code",
+        name: "Tensoric Code",
         applicationCategory: "DeveloperApplication",
         operatingSystem: "Linux, macOS, Windows",
-        description: dict.productPages["syntheta-code"].description,
+        description: dict.productPages["tensoric-code"].description,
       },
       {
         "@type": "SoftwareApplication",
-        name: "Syntheta Research",
+        name: "Tensoric Research",
         applicationCategory: "ResearchApplication",
         operatingSystem: "Cloud, On-Premise",
-        description: dict.productPages["syntheta-research"].description,
+        description: dict.productPages["tensoric-research"].description,
       },
     ],
   };
@@ -169,6 +170,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/icon.svg" />
         <script

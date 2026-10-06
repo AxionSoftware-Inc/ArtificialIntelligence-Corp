@@ -57,11 +57,13 @@ export function Navbar({ dict, lang }: NavbarProps) {
         {/* Brand Logo with Icon */}
         <Link href={`/${lang}`} className="flex items-center gap-2.5 group">
           {/* Bespoke Logo Icon */}
-          <div className="h-7 w-7 rounded-lg border border-white/20 bg-gradient-to-b from-white/10 to-transparent p-1 flex items-center justify-center shadow-[0_0_12px_rgba(56,189,248,0.25)] group-hover:border-cyan-400/50 transition-colors">
+          <div className="h-7 w-7 rounded-lg border border-cyan-400/30 bg-gradient-to-b from-cyan-950/40 to-transparent p-1 flex items-center justify-center shadow-[0_0_14px_rgba(56,189,248,0.3)] group-hover:border-cyan-400/60 transition-colors">
             <svg viewBox="0 0 24 24" fill="none" className="h-full w-full">
-              <polygon points="12,4 19,8 12,12 5,8" stroke="#38bdf8" strokeWidth="1.8" />
-              <polygon points="5,8 12,12 12,19 5,15" fill="#1e293b" />
-              <polygon points="12,12 19,8 19,15 12,19" fill="#0f172a" />
+              <polygon points="12,4 19,8 12,12 5,8" fill="#0c4a6e" stroke="#38bdf8" strokeWidth="1.2" strokeLinejoin="round" />
+              <polygon points="5,8 12,12 12,20 5,16" fill="#1e293b" />
+              <polygon points="12,12 19,8 19,16 12,20" fill="#0f172a" />
+              <line x1="12" y1="12" x2="12" y2="20" stroke="#38bdf8" strokeWidth="1.2" strokeLinecap="round" />
+              <circle cx="12" cy="12" r="1.2" fill="#ffffff" />
             </svg>
           </div>
 

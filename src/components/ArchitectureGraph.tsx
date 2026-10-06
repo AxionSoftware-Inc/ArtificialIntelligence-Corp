@@ -13,7 +13,7 @@ export function ArchitectureGraph() {
         <div className="flex items-center gap-2.5">
           <div className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="font-mono text-xs font-medium text-neutral-300">
-            SYSTEM ARCHITECTURE // SYNTHETA-1 COGNITIVE ENGINE
+            SYSTEM ARCHITECTURE // TENSORIC-1 COGNITIVE ENGINE
           </span>
         </div>
 
@@ -172,7 +172,7 @@ export function ArchitectureGraph() {
             </div>
 
             <div className="bg-[#050608] border border-white/[0.08] p-4 rounded font-mono text-xs text-neutral-300 space-y-2 overflow-x-auto">
-              <div className="text-neutral-500">// Formal specification checked by Syntheta Oracle</div>
+              <div className="text-neutral-500">// Formal specification checked by Tensoric Oracle</div>
               <div>
                 <span className="text-indigo-400">theorem</span>{" "}
                 <span className="text-white">autonomous_convergence</span>{" "}
