@@ -27,7 +27,7 @@ export async function generateMetadata({
   const locale: Locale = hasLocale(lang) ? lang : defaultLocale;
   const dict = await getDictionary(locale);
 
-  const siteUrl = "https://syntheta.ai";
+  const siteUrl = "https://tensoric.space";
   const canonicalUrl = `${siteUrl}/${locale}`;
 
   return {
@@ -112,12 +112,12 @@ export default async function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://syntheta.ai/#organization",
+        "@id": "https://tensoric.space/#organization",
         name: "Syntheta AI",
-        url: "https://syntheta.ai",
+        url: "https://tensoric.space",
         logo: {
           "@type": "ImageObject",
-          url: "https://syntheta.ai/icon.svg",
+          url: "https://tensoric.space/icon.svg",
         },
         description: dict.meta.description,
         sameAs: [
@@ -126,11 +126,11 @@ export default async function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": `https://syntheta.ai/${safeLang}/#website`,
-        url: `https://syntheta.ai/${safeLang}`,
+        "@id": `https://tensoric.space/${safeLang}/#website`,
+        url: `https://tensoric.space/${safeLang}`,
         name: "Syntheta AI",
         publisher: {
-          "@id": "https://syntheta.ai/#organization",
+          "@id": "https://tensoric.space/#organization",
         },
         inLanguage: safeLang,
       },

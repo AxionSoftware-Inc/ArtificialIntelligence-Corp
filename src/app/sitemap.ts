@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 
-const BASE_URL = "https://syntheta.ai";
+const BASE_URL = "https://tensoric.space";
 const productSlugs = ["syntheta-mobile", "syntheta-code", "syntheta-research"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
